@@ -17,7 +17,7 @@ export const Terminal = forwardRef<HTMLDivElement, TerminalProps>(
         {steps.map((step, i) => (
           <div key={i} className="story-step mb-6" data-step={i}>
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="text-primary">{step.prompt}</span>
+              <span className="prompt-text text-primary opacity-0">{step.prompt}</span>
               <span className="command-text text-foreground opacity-0">
                 {step.command}
               </span>

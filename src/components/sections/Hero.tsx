@@ -47,7 +47,7 @@ export function Hero() {
   useGSAP(
     () => {
       const commandEls = terminalRef.current?.querySelectorAll(".command-text");
-      const outputLineEls = terminalRef.current?.querySelectorAll(".output-line");
+      const promptEls = terminalRef.current?.querySelectorAll(".prompt-text");
 
       commandEls?.forEach((el) => {
         const element = el as HTMLElement;
@@ -64,8 +64,10 @@ export function Hero() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `+=${totalChars * 15 + 1200}`,
+          end: `+=${totalChars * 15 + 1400}`,
           pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
           scrub: 0.8,
           onUpdate: (self) => {
             if (progressRef.current) {
@@ -81,10 +83,12 @@ export function Hero() {
         const stepEl = terminalRef.current?.querySelector(
           `[data-step="${stepIndex}"]`
         );
+        const promptEl = stepEl?.querySelector(".prompt-text") as HTMLElement | null;
         const commandEl = stepEl?.querySelector(".command-text") as HTMLElement | null;
         const outputEls = stepEl?.querySelectorAll(".output-line");
         const fullText = commandEl?.dataset.fullText || "";
 
+        tl.to(promptEl, { opacity: 1, duration: 0.1 }, cursor);
         tl.set(commandEl, { opacity: 1 }, cursor);
 
         for (let i = 0; i < fullText.length; i++) {
@@ -107,7 +111,7 @@ export function Hero() {
           );
         });
 
-        cursor += (outputEls?.length || 0) * 0.06 + 0.4;
+        cursor += (outputEls?.length || 0) * 0.06 + 0.5;
       });
 
       return () => {
@@ -120,7 +124,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex min-h-screen items-center overflow-hidden px-6 py-24"
+      className="relative min-h-screen overflow-hidden bg-background px-6 py-24"
     >
       <div
         className="absolute inset-0 -z-10 opacity-[0.04]"
@@ -131,7 +135,7 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto grid w-full max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid min-h-[calc(100vh-12rem)] max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
