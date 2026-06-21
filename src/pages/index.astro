@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { Hero } from "@/components/sections/Hero";
+import { Features } from "@/components/sections/Features";
+import Footer from "@/components/sections/Footer.astro";
+---
+
+<Layout>
+  <div class="fixed top-4 right-4 z-50">
+    <ThemeToggle client:load />
+  </div>
+  <Hero client:only="react" />
+  <SmoothScroll client:only="react">
+    <main>
+      <Features client:load />
+      <Footer />
+    </main>
+  </SmoothScroll>
+</Layout>
