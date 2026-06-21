@@ -53,12 +53,8 @@ export function Hero() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${totalChars * 12 + 1400}`,
-          pin: true,
-          pinSpacing: true,
-          pinType: "fixed",
-          anticipatePin: 1,
+          start: "top 60%",
+          end: `+=${totalChars * 12 + 800}`,
           scrub: 1,
           onUpdate: (self) => {
             if (progressRef.current) {
@@ -119,7 +115,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen overflow-hidden bg-background px-6"
+      className="relative min-h-screen overflow-hidden bg-background px-6 py-24"
     >
       <div
         className="absolute inset-0 -z-10 opacity-[0.04]"
@@ -130,7 +126,7 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto grid h-full max-w-7xl items-center gap-12 py-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto grid min-h-[calc(100vh-12rem)] max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col justify-center gap-5">
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
             Laika
