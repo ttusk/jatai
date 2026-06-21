@@ -10,8 +10,8 @@ import Footer from "@/components/sections/Footer.astro";
   <div class="fixed top-4 right-4 z-50">
     <ThemeToggle client:load />
   </div>
+  <Hero client:only="react" />
   <main>
-    <Hero client:only="react" />
     <Features client:load />
     <Footer />
   </main>
