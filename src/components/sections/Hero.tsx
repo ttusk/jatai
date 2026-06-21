@@ -1,13 +1,9 @@
 import { useRef } from "react";
-import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Terminal } from "@/components/Terminal";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const terminalSteps = [
   {
@@ -40,40 +36,22 @@ const terminalSteps = [
 ];
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const commandEls = terminalRef.current?.querySelectorAll(".command-text");
-      const promptEls = terminalRef.current?.querySelectorAll(".prompt-text");
-
-      commandEls?.forEach((el) => {
-        const element = el as HTMLElement;
-        element.dataset.fullText = element.textContent || "";
-        element.textContent = "";
-      });
-
       const totalChars = terminalSteps.reduce(
         (acc, step) => acc + step.command.length,
         0
       );
+      const baseDuration = totalChars * 0.04;
 
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${totalChars * 15 + 1400}`,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 0.8,
-          onUpdate: (self) => {
-            if (progressRef.current) {
-              progressRef.current.style.width = `${self.progress * 100}%`;
-            }
-          },
+        onUpdate: () => {
+          if (progressRef.current) {
+            progressRef.current.style.width = `${tl.progress() * 100}%`;
+          }
         },
       });
 
@@ -89,43 +67,33 @@ export function Hero() {
         const fullText = commandEl?.dataset.fullText || "";
 
         tl.to(promptEl, { opacity: 1, duration: 0.1 }, cursor);
-        tl.set(commandEl, { opacity: 1 }, cursor);
 
         for (let i = 0; i < fullText.length; i++) {
-          tl.call(
-            () => {
-              if (commandEl) commandEl.textContent = fullText.slice(0, i + 1);
-            },
-            undefined,
-            cursor
-          );
-          cursor += 0.03;
+          tl.call(() => {
+            if (commandEl) commandEl.textContent = fullText.slice(0, i + 1);
+          }, undefined);
+          tl.set(commandEl, { opacity: 1 });
+          cursor += 0.04;
         }
 
         outputEls?.forEach((line, lineIndex) => {
-          tl.fromTo(
-            line,
-            { opacity: 0, x: -6 },
-            { opacity: 1, x: 0, duration: 0.12 },
-            cursor + lineIndex * 0.06
-          );
+          tl.to(line, { opacity: 1, x: 0, duration: 0.1 }, cursor + lineIndex * 0.08);
         });
 
-        cursor += (outputEls?.length || 0) * 0.06 + 0.5;
+        cursor += (outputEls?.length || 0) * 0.08 + 0.6;
       });
+
+      tl.duration(baseDuration + 2);
 
       return () => {
         tl.kill();
       };
     },
-    { scope: sectionRef }
+    { scope: terminalRef }
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen overflow-hidden bg-background px-6 py-24"
-    >
+    <section className="relative min-h-screen overflow-hidden bg-background px-6 py-24">
       <div
         className="absolute inset-0 -z-10 opacity-[0.04]"
         style={{
@@ -136,12 +104,7 @@ export function Hero() {
       />
 
       <div className="mx-auto grid min-h-[calc(100vh-12rem)] max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col justify-center gap-5"
-        >
+        <div className="flex flex-col justify-center gap-5">
           <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
             Laika
           </h1>
@@ -160,7 +123,7 @@ export function Hero() {
               Fale conosco
             </Button>
           </div>
-        </motion.div>
+        </div>
 
         <div className="flex flex-col justify-center gap-6">
           <Terminal ref={terminalRef} steps={terminalSteps} />
