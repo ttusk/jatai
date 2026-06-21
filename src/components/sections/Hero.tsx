@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Terminal } from "@/components/Terminal";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, ChevronDown, MessageCircle } from "lucide-react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const terminalSteps = [
   {
@@ -20,41 +23,41 @@ const terminalSteps = [
       "✓ Consent flow ready",
     ],
   },
-  {
+    {
     prompt: ">",
     command: "laika.openFinance.accounts({ cpf: '123.456.789-00' })",
     output: [
       "{",
       "  institution: 'Banco do Brasil',",
-      "  accounts: [",
-      "    { type: 'checking', balance: 4850.00, currency: 'BRL' },",
-      "    { type: 'savings', balance: 12300.00, currency: 'BRL' }",
-      "  ]",
+      "  accounts: 2,",
+      "  totalBalance: 17150.00",
       "}",
     ],
   },
 ];
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const totalChars = terminalSteps.reduce(
-        (acc, step) => acc + step.command.length,
-        0
-      );
-
       const tl = gsap.timeline({
-        onUpdate: () => {
-          if (progressRef.current) {
-            progressRef.current.style.width = `${tl.progress() * 100}%`;
-          }
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+          onUpdate: (self) => {
+            if (progressRef.current) {
+              progressRef.current.style.width = `${self.progress * 100}%`;
+            }
+          },
         },
       });
 
-      let cursor = 0;
+      let cursor = 0.06;
 
       terminalSteps.forEach((step, stepIndex) => {
         const stepEl = terminalRef.current?.querySelector(
@@ -73,7 +76,7 @@ export function Hero() {
           typeProxy,
           {
             value: fullText.length,
-            duration: fullText.length * 0.04,
+            duration: 0.22,
             ease: "none",
             onUpdate: () => {
               if (commandEl) {
@@ -84,32 +87,34 @@ export function Hero() {
           cursor
         );
 
-        cursor += fullText.length * 0.04 + 0.3;
+        cursor += 0.22;
 
         outputEls?.forEach((line, lineIndex) => {
-          tl.set(line, { visibility: "visible" }, cursor + lineIndex * 0.08);
+          const lineTime = cursor + lineIndex * 0.03;
+          tl.set(line, { visibility: "visible" }, lineTime);
           tl.fromTo(
             line,
             { opacity: 0, x: -6 },
-            { opacity: 1, x: 0, duration: 0.15 },
-            cursor + lineIndex * 0.08
+            { opacity: 1, x: 0, duration: 0.03 },
+            lineTime
           );
         });
 
-        cursor += (outputEls?.length || 0) * 0.08 + 0.6;
+        cursor += (outputEls?.length || 0) * 0.03 + 0.08;
       });
-
-      tl.duration(cursor + 0.5);
 
       return () => {
         tl.kill();
       };
     },
-    { scope: terminalRef }
+    { scope: sectionRef }
   );
 
   return (
-    <section className="relative overflow-hidden bg-background px-6 py-24 lg:py-32">
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-screen flex-col items-center justify-center bg-background px-6 py-16"
+    >
       <div
         className="absolute inset-0 -z-10 opacity-[0.04]"
         style={{
@@ -119,40 +124,50 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
-        <div className="flex flex-col justify-center gap-5">
-          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl">
-            Laika
-          </h1>
-
-          <p className="text-xl font-medium text-foreground sm:text-2xl">
+      <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-8 text-center">
+        <div className="space-y-3">
+          <p className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
             Open Fintech Lab
           </p>
-
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Button size="lg" className="gap-2">
-              Conheça as soluções
-              <ArrowRight className="size-4" />
-            </Button>
-            <Button variant="outline" size="lg" className="gap-2">
-              <MessageCircle className="size-4" />
-              Fale conosco
-            </Button>
-          </div>
+          <h1 className="text-6xl font-bold tracking-tight sm:text-7xl md:text-8xl">
+            Laika
+          </h1>
         </div>
 
-        <div className="flex flex-col justify-center gap-6">
+        <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
+          Código aberto para conectar fintechs, bancos e o ecossistema de
+          Open Finance no Brasil.
+        </p>
+
+        <div className="w-full max-w-2xl">
           <Terminal ref={terminalRef} steps={terminalSteps} />
-          <div className="w-full max-w-xl">
-            <div className="h-0.5 w-full bg-border">
-              <div
-                ref={progressRef}
-                className="h-full bg-primary transition-none"
-                style={{ width: "0%" }}
-              />
-            </div>
+        </div>
+
+        <div className="w-full max-w-2xl">
+          <div className="h-0.5 w-full bg-border">
+            <div
+              ref={progressRef}
+              className="h-full bg-primary transition-none"
+              style={{ width: "0%" }}
+            />
           </div>
         </div>
+
+        <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <Button size="lg" className="gap-2">
+            Conheça as soluções
+            <ArrowRight className="size-4" />
+          </Button>
+          <Button variant="outline" size="lg" className="gap-2">
+            <MessageCircle className="size-4" />
+            Fale conosco
+          </Button>
+        </div>
+      </div>
+
+      <div className="mt-auto flex flex-col items-center gap-1 pt-8 text-xs text-muted-foreground">
+        <span className="uppercase tracking-widest">Rolar</span>
+        <ChevronDown className="size-4 animate-bounce" />
       </div>
     </section>
   );
