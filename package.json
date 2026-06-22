@@ -10,7 +10,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test:smoke": "node scripts/smoke-test.mjs"
+    "test:smoke": "node scripts/smoke-test.mjs",
+    "test:scroll": "node scripts/scroll-test.mjs",
+    "test": "npm run test:smoke && npm run test:scroll"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.0"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.7",

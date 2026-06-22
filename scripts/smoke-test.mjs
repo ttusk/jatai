@@ -71,10 +71,6 @@ async function runTests() {
         name: "No ScrollTrigger pin artifacts in static HTML",
         pass: !html.includes("pin-spacer"),
       },
-      {
-        name: "Sections use full viewport height",
-        pass: html.includes("min-h-screen"),
-      },
     ];
 
     let allPassed = true;
