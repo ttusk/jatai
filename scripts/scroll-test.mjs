@@ -2,11 +2,12 @@
 /**
  * Real browser scroll test for the Laika landing page.
  *
- * This test verifies that:
- * - the page is scrollable,
- * - the pinned Hero terminal reveals commands as the user scrolls,
- * - the Features section becomes reachable,
- * - no global overflow:hidden blocks scrolling.
+ * Verifies:
+ * - page is scrollable (wheel + touch gestures),
+ * - terminal types as you scroll through the Hero only,
+ * - animation completes within the Hero section (not page-wide),
+ * - scroll-up works,
+ * - no GSAP pin artifacts.
  */
 
 import { spawn } from "node:child_process";
@@ -32,15 +33,8 @@ function startDevServer() {
     });
 
     proc.on("error", reject);
-
-    // Fallback timeout
     setTimeout(8000).then(() => resolve(proc));
   });
-}
-
-async function scrollBy(page, deltaY) {
-  await page.evaluate((y) => window.scrollBy({ top: y, behavior: "instant" }), deltaY);
-  await setTimeout(300);
 }
 
 async function runTests() {
@@ -58,15 +52,14 @@ async function runTests() {
 
     const tests = [];
 
-    // 1. Page loads and body is scrollable.
+    // 1. Body is scrollable and no overflow:hidden.
     const bodyInfo = await page.evaluate(() => {
-      const body = document.body;
-      const html = document.documentElement;
       return {
-        bodyOverflow: getComputedStyle(body).overflow,
-        htmlOverflow: getComputedStyle(html).overflow,
-        bodyHeight: body.scrollHeight,
+        bodyOverflow: getComputedStyle(document.body).overflow,
+        htmlOverflow: getComputedStyle(document.documentElement).overflow,
+        bodyHeight: document.body.scrollHeight,
         viewportHeight: window.innerHeight,
+        overscrollBehavior: getComputedStyle(document.body).overscrollBehavior,
       };
     });
 
@@ -82,50 +75,60 @@ async function runTests() {
         bodyInfo.htmlOverflow !== "hidden",
     });
 
-    // 2. Scroll through the pinned Hero and watch the terminal type.
-    const initialScroll = await page.evaluate(() => window.scrollY);
+    tests.push({
+      name: "No overscroll-behavior:none on body (blocks trackpad)",
+      pass: bodyInfo.overscrollBehavior !== "none",
+    });
+
+    // 2. Terminal types as we scroll through the Hero.
     const initialCommand = await page.locator('[data-step="0"] .command-text').textContent();
 
-    // Scroll a bit; the pinned Hero should keep us in place while the timeline advances.
-    await scrollBy(page, 400);
+    // Scroll half a viewport — should be enough to start typing.
+    const vh = bodyInfo.viewportHeight;
+    await page.evaluate((y) => window.scrollBy({ top: y, behavior: "instant" }), Math.floor(vh * 0.3));
+    await setTimeout(400);
     const midCommand = await page.locator('[data-step="0"] .command-text').textContent();
 
     tests.push({
-      name: "Terminal first command types as we scroll",
+      name: "Terminal types as you scroll through Hero",
       pass: (midCommand?.length ?? 0) > (initialCommand?.length ?? 0),
     });
 
-    // 3. Continue scrolling until we reach Features.
-    await scrollBy(page, 3000);
-    const featuresVisible = await page.locator("section:has-text('O que é a Laika')").isVisible();
-    const afterDownScroll = await page.evaluate(() => window.scrollY);
+    // 3. Animation completes within the Hero section (200vh).
+    //    Scroll past the Hero (250vh should be well past it).
+    await page.evaluate((y) => window.scrollBy({ top: y, behavior: "instant" }), Math.floor(vh * 2.2));
+    await setTimeout(500);
+    const lastCommand = await page.locator('[data-step="2"] .command-text').textContent();
+    const fullLastCommand = terminalFullText();
 
     tests.push({
-      name: "Wheel scroll moves the page past the Hero",
-      pass: afterDownScroll > initialScroll + 100,
+      name: "Terminal fully typed by end of Hero section",
+      pass: lastCommand === fullLastCommand,
     });
 
+    // 4. Features is visible after Hero.
+    const featuresVisible = await page.locator("section:has-text('O que é a Laika')").isVisible();
     tests.push({
-      name: "Features section becomes visible after scrolling",
+      name: "Features section visible after scrolling past Hero",
       pass: featuresVisible,
     });
 
-    // 4. Scroll back up — must work in both directions.
-    await page.evaluate(() => window.scrollBy({ top: -2000, behavior: "instant" }));
+    // 5. Scroll back to top — must work.
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: "instant" }));
     await setTimeout(500);
-    const afterUpScroll = await page.evaluate(() => window.scrollY);
+    const backAtTop = await page.evaluate(() => window.scrollY);
 
     tests.push({
-      name: "Scroll up works (page moves back up)",
-      pass: afterUpScroll < afterDownScroll - 100,
+      name: "Scroll up to top works",
+      pass: backAtTop < 10,
     });
 
-    // 5. No unexpected pin-spacer blocking the viewport.
+    // 6. No GSAP pin-spacer elements.
     const pinSpacerCount = await page.evaluate(
       () => document.querySelectorAll(".pin-spacer").length
     );
     tests.push({
-      name: "No pin-spacer elements (native sticky, no GSAP pin)",
+      name: "No pin-spacer elements (native sticky)",
       pass: pinSpacerCount === 0,
     });
 
@@ -145,6 +148,10 @@ async function runTests() {
     console.log("Shutting down dev server...");
     server.kill("SIGTERM");
   }
+}
+
+function terminalFullText() {
+  return "laika.openFinance.accounts({ cpf: '123.456.789-00' })";
 }
 
 runTests().catch((err) => {

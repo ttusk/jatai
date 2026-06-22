@@ -115,10 +115,10 @@ export function Hero() {
   );
 
   return (
-    <section ref={sectionRef} className="relative bg-background" style={{ height: "300vh" }}>
-      <div className="sticky top-0 h-screen overflow-hidden px-6">
+    <section ref={sectionRef} className="relative bg-background" style={{ height: "200vh" }}>
+      <div className="sticky top-0 h-screen px-6">
         <div
-          className="absolute inset-0 -z-10 opacity-[0.04]"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-[0.04]"
           style={{
             backgroundImage:
               "linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)",

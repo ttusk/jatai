@@ -138,9 +138,5 @@
 }
 
 html, body {
-  overflow-x: hidden;
-}
-
-body {
-  overscroll-behavior: none;
+  overflow-x: clip;
 }
