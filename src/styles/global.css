@@ -140,3 +140,31 @@
 html, body {
   overflow-x: clip;
 }
+
+@keyframes decay-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--decay-x, 0), var(--decay-y, -16px), 0)
+      rotate(var(--decay-rotate, -1deg)) scale(var(--decay-scale, 0.97));
+    filter: blur(var(--decay-blur, 6px));
+  }
+  70% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    filter: blur(0);
+  }
+}
+
+.decay-in {
+  animation: decay-in var(--decay-duration, 0.9s)
+    cubic-bezier(0.22, 1, 0.36, 1) var(--decay-delay, 0s) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decay-in {
+    animation: none;
+  }
+}

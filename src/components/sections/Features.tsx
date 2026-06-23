@@ -42,7 +42,7 @@ const itemVariants = {
 
 export function Features() {
   return (
-    <section className="px-6 py-24">
+    <section className="flex h-screen items-center px-6">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

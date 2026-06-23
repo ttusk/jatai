@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function CTA() {
   return (
-    <section className="px-6 py-24">
+    <section className="flex h-screen items-center px-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
