@@ -58,17 +58,17 @@ const asciiArt = String.raw`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀�
 const terminalSteps = [
   {
     prompt: "$",
-    command: "npm install @laika/sdk",
+    command: "npm install @jatai/sdk",
     output: ["added 1 package in 1.2s"],
     narration: [
-      "# Laika é um projeto open source de open finance.",
+      "# Jataí é um projeto open source de open finance.",
       "# Facilitamos a sua integração bancária com o Sputnik.",
       "# Veja como é simples:",
     ],
   },
   {
     prompt: "$",
-    command: "npx laika init --env production",
+    command: "npx jatai init --env production",
     output: [
       "✓ Open Finance provider configured",
       "✓ Client credentials validated",
@@ -78,7 +78,7 @@ const terminalSteps = [
   },
   {
     prompt: ">",
-    command: "laika.openFinance.accounts({ cpf: '123.456.789-00' })",
+    command: "jatai.openFinance.accounts({ cpf: '123.456.789-00' })",
     output: [
       "{",
       "  institution: 'Banco do Brasil',",
@@ -195,7 +195,7 @@ export function Hero() {
         <div className="mx-auto grid h-full max-w-7xl items-center gap-12 py-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col justify-center gap-5">
             <h1
-              className="decay-in bg-gradient-to-b from-aperture-blue-light to-aperture-blue bg-clip-text text-5xl font-bold tracking-tight text-transparent drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] sm:text-6xl md:text-7xl"
+              className="decay-in text-5xl font-display font-bold tracking-tight text-primary drop-shadow-[0_1px_1px_rgba(0,0,0,0.15)] sm:text-6xl md:text-7xl"
               style={{
                 "--decay-x": "-10px",
                 "--decay-y": "-20px",
@@ -203,7 +203,7 @@ export function Hero() {
                 "--decay-delay": "0.15s",
               } as React.CSSProperties}
             >
-              Laika
+              Jataí
             </h1>
 
             <p

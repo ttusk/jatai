@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Smoke test for the Laika landing page.
+ * Smoke test for the Jataí landing page.
  * Starts the Astro dev server, fetches the page, and asserts the expected
  * sections are present and no scroll-blocking artifacts remain.
  */
@@ -52,8 +52,8 @@ async function runTests() {
 
     const tests = [
       {
-        name: "Page title contains Laika",
-        pass: html.includes("<title>Laika"),
+        name: "Page title contains Jataí",
+        pass: html.includes("<title>Jataí"),
       },
       {
         name: "Hero astro-island present (client-only React)",
@@ -61,11 +61,11 @@ async function runTests() {
       },
       {
         name: "Features section rendered",
-        pass: html.includes("O que é a Laika"),
+        pass: html.includes("O que é a Jataí"),
       },
       {
         name: "Footer rendered",
-        pass: html.includes("Laika. Open Fintech Lab"),
+        pass: html.includes("Jataí. Open Fintech Lab"),
       },
       {
         name: "No ScrollTrigger pin artifacts in static HTML",

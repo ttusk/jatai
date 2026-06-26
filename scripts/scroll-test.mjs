@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Real browser scroll test for the Laika landing page.
+ * Real browser scroll test for the Jataí landing page.
  *
  * Verifies:
  * - page is scrollable (wheel + touch gestures),
@@ -107,7 +107,7 @@ async function runTests() {
     });
 
     // 4. Features is visible after Hero.
-    const featuresVisible = await page.locator("section:has-text('O que é a Laika')").isVisible();
+    const featuresVisible = await page.locator("section:has-text('O que é a Jataí')").isVisible();
     tests.push({
       name: "Features section visible after scrolling past Hero",
       pass: featuresVisible,
@@ -151,7 +151,7 @@ async function runTests() {
 }
 
 function terminalFullText() {
-  return "laika.openFinance.accounts({ cpf: '123.456.789-00' })";
+  return "jatai.openFinance.accounts({ cpf: '123.456.789-00' })";
 }
 
 runTests().catch((err) => {

@@ -52,11 +52,11 @@ export function Features() {
           className="mb-16"
         >
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            O que é a Laika
+            O que é a Jataí
           </h2>
           <div className="mt-6 space-y-4 text-lg text-muted-foreground">
             <p>
-              A Laika é um laboratório de tecnologia financeira aberta. Nascemos
+              A Jataí é um laboratório de tecnologia financeira aberta. Nascemos
               para desenvolver soluções de open finance no Brasil, ajudando
               fintechs, instituições e marketplaces a integrarem dados,
               pagamentos e serviços bancários de forma regulada e acessível.
