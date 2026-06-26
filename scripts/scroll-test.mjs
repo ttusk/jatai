@@ -15,7 +15,7 @@ import { setTimeout } from "node:timers/promises";
 import { chromium } from "playwright";
 
 const PORT = 4321;
-const URL = `http://localhost:${PORT}`;
+const URL = `http://localhost:${PORT}/jatai/`;
 
 function startDevServer() {
   return new Promise((resolve, reject) => {

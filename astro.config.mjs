@@ -6,6 +6,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://talkinghead.blog.br',
+  base: '/jatai/',
+
   integrations: [react()],
 
   vite: {

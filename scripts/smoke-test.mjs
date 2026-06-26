@@ -9,7 +9,7 @@ import { spawn } from "node:child_process";
 import { setTimeout } from "node:timers/promises";
 
 const PORT = 4321;
-const URL = `http://localhost:${PORT}`;
+const URL = `http://localhost:${PORT}/jatai/`;
 
 function startDevServer() {
   return new Promise((resolve, reject) => {
