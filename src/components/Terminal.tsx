@@ -13,8 +13,8 @@ interface TerminalProps {
 }
 
 const jsonClasses: Record<string, string> = {
-  key: "text-amber-700 dark:text-amber-300 font-medium",
-  string: "text-green-700 dark:text-green-400",
+  key: "text-[var(--of-azul-escuro)] dark:text-[var(--primary)] font-medium",
+  string: "text-emerald-700 dark:text-emerald-400",
   number: "text-orange-600 dark:text-orange-400",
   boolean: "text-purple-600 dark:text-purple-400",
   punct: "text-muted-foreground",
@@ -62,7 +62,7 @@ function renderStringToken(value: string, key: number) {
     return (
       <span key={key} className={jsonClasses.string}>
         {quote}
-        <span className="text-[#B8860B] dark:text-[#FFEF00] font-semibold">
+        <span className="font-semibold text-[var(--of-azul-profundo)] dark:text-[var(--of-amarelo)]">
           Banco do Brasil
         </span>
         {quote}
@@ -109,10 +109,10 @@ function highlightShell(line: string) {
 
   return tokens.map((t, idx) => {
     let cls = "text-muted-foreground";
-    if (t.type === "string") cls = "text-green-700 dark:text-green-400";
+    if (t.type === "string") cls = "text-emerald-700 dark:text-emerald-400";
     else if (t.type === "number") cls = "text-orange-600 dark:text-orange-400";
     else if (t.type === "boolean") cls = "text-purple-600 dark:text-purple-400";
-    else if (t.type === "flag") cls = "text-amber-600 dark:text-amber-400";
+    else if (t.type === "flag") cls = "text-[var(--of-azul-claro)]";
     else if (t.type === "word") {
       cls = commands.has(t.value)
         ? "text-foreground font-semibold"

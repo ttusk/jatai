@@ -6,11 +6,11 @@ import { SimpleIcon } from "@/components/SimpleIcon";
 const capabilities = [
   {
     icon: <Code2 className="size-7 text-primary" />,
-    title: "APIs Open Finance",
+    title: "Open Finance APIs",
   },
   {
     icon: <SimpleIcon icon={siPix} className="size-7 text-primary" />,
-    title: "Soluções PIX",
+    title: "PIX Solutions",
   },
   {
     icon: <Landmark className="size-7 text-primary" />,
@@ -18,7 +18,7 @@ const capabilities = [
   },
   {
     icon: <ShieldCheck className="size-7 text-primary" />,
-    title: "Compliance e segurança",
+    title: "Compliance & Security",
   },
 ];
 
@@ -40,32 +40,31 @@ const itemVariants = {
   },
 };
 
-export function Features() {
+export function Capabilities() {
   return (
-    <section className="flex h-screen items-center px-6">
+    <section className="flex min-h-screen items-center px-4 py-16 sm:px-6 sm:py-24">
       <div className="mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-16"
+          className="mb-10 sm:mb-16"
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            O que é a Jataí
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+            What is Jataí
           </h2>
-          <div className="mt-6 space-y-4 text-lg text-muted-foreground">
+          <div className="mt-4 space-y-3 text-base text-muted-foreground sm:mt-6 sm:space-y-4 sm:text-lg">
             <p>
-              A Jataí é um laboratório de tecnologia financeira aberta. Nascemos
-              para desenvolver soluções de open finance no Brasil, ajudando
-              fintechs, instituições e marketplaces a integrarem dados,
-              pagamentos e serviços bancários de forma regulada e acessível.
+              Jataí is an open financial technology lab. We build tools that
+              help fintechs, institutions, and marketplaces integrate data,
+              payments, and banking services in a regulated, transparent way.
             </p>
             <p>
-              Nosso trabalho é construir pontes entre o sistema financeiro
-              tradicional e novos modelos de negócio. Tudo com código aberto,
-              transparência e foco em segurança, conformidade e soberania de
-              dados.
+              Our work is to build bridges between the traditional financial
+              system and new business models. All with open-source code,
+              transparency, and a focus on security, compliance, and data
+              sovereignty.
             </p>
           </div>
         </motion.div>
@@ -75,7 +74,7 @@ export function Features() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4"
         >
           {capabilities.map((capability) => (
             <motion.div
@@ -84,7 +83,9 @@ export function Features() {
               className="flex items-center gap-3"
             >
               {capability.icon}
-              <span className="text-sm font-medium">{capability.title}</span>
+              <span className="text-xs font-medium sm:text-sm">
+                {capability.title}
+              </span>
             </motion.div>
           ))}
         </motion.div>

@@ -1,17 +1,31 @@
 ---
-import { Separator } from "@/components/ui/separator";
 ---
 
-<footer class="px-6 py-12">
-  <Separator className="mb-12" />
-  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
-    <p class="text-sm text-muted-foreground">
-      © {new Date().getFullYear()} Jataí. Open Fintech Lab.
-    </p>
-    <div class="flex gap-6 text-sm text-muted-foreground">
-      <a href="#" class="hover:text-foreground">Privacy</a>
-      <a href="#" class="hover:text-foreground">Terms</a>
-      <a href="#" class="hover:text-foreground">Contact</a>
+<footer>
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
+    <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+      <div class="flex flex-col items-center gap-3 md:flex-row md:gap-4">
+        <span class="text-sm text-muted-foreground">
+          © {new Date().getFullYear()} Jataí
+        </span>
+      </div>
+
+      <img
+        src={`${import.meta.env.BASE_URL}logos/marca_open_finance.svg`}
+        alt="Open Finance Brasil"
+        class="h-7 w-auto dark:hidden"
+      />
+      <img
+        src={`${import.meta.env.BASE_URL}logos/marca_positiva_open_finance.svg`}
+        alt="Open Finance Brasil"
+        class="hidden h-7 w-auto dark:block"
+      />
+
+      <nav class="flex gap-6 text-sm text-muted-foreground">
+        <a href="#" class="hover:text-foreground">Privacidade</a>
+        <a href="#" class="hover:text-foreground">Termos</a>
+        <a href="#" class="hover:text-foreground">Contato</a>
+      </nav>
     </div>
   </div>
 </footer>

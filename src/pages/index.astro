@@ -1,21 +1,16 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { Features } from "@/components/sections/Features";
+import { CodeShowcase } from "@/components/sections/CodeShowcase";
 import Footer from "@/components/sections/Footer.astro";
 ---
 
 <Layout>
-  <div
-    class="fixed top-4 right-4 z-50 decay-in"
-    style="--decay-x: 8px; --decay-y: -10px; --decay-rotate: 2deg; --decay-delay: 0.1s;"
-  >
-    <ThemeToggle client:load />
-  </div>
-  <Hero client:only="react" />
+  <Navbar client:load />
   <main>
-    <Features client:load />
-    <Footer />
+    <Hero />
+    <CodeShowcase client:only="react" />
   </main>
+  <Footer />
 </Layout>
