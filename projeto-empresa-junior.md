@@ -136,10 +136,6 @@ Prazo total estimado: 6 meses (24 semanas).
 
 ## 5. Estrutura Organizacional
 
-### Organograma
-
-`[ ]` Desenhar no Draw.io.
-
 ### Papéis e responsabilidades
 
 | Integrante | Nível | Função principal |
@@ -254,7 +250,20 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 
 ## 11. Plano Financeiro
 
-`[ ]` Capital inicial.
+- Financiamento inicial via FAPDF (Fundação de Apoio a Pesquisa) com o professor Rodrigo como Proponente.
+- Submissão do projeto via edital de Demanda espontânea ou Apoio à Extensão Tecnológica/Inovação
+- O projeto ganha um subsídio para servidores de infraestrutura AWS, ou pode hostear a infra dentro da IES UnDF ou UnB
+- Os programadores do projeto ganham bolsa de pesquisa para custear
+
+- Lei da Empresa Júnior (Lei nº 13.267/2016) - Art. 9º, § 3º
+- "A instituição de ensino superior poderá ceder espaço físico a título gratuito para a sede da empresa júnior, bem como autorizar o uso de seus bens e serviços para o desenvolvimento de suas atividades..."
+- A própria lei da EJ tem respaldo na alocação da infraestrutura na própria IES
+- Capital Inicial
+    - Domínio do site R$ 40 por ano
+    - Taxa de registro de CNPJ no cartório
+    - Identidade visual
+    - Reserva de emergência
+    - Capital de giro inicial (pelo menos 3 meses de custeamento)
 `[ ]` Empréstimos.
 `[ ]` Custos fixos.
 `[ ]` Custos variáveis.
@@ -290,8 +299,11 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 
 `[ ]` Ações ambientais.
 `[ ]` Projetos sociais.
+- Campus Party
+- Hackatons no Distrito Federal
 `[ ]` Inclusão e acessibilidade.
 `[ ]` Impacto social esperado.
+- Proporcionar o aprendizado em integração de gateways de pagamento em aplicações de forma acessível
 
 ---
 
