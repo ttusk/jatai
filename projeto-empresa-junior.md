@@ -8,7 +8,7 @@ created: 2026-06-14
 **Professor:** Rodrigo
 **Entrega:** 24/07 ou 31/07 (apresentação) — data final 31/07
 **Grupo:** Leonardo Brito Gomes, Luiz Gustavo Silva Carvalho, Karoline Rodrigues Costa
-**Entregáveis:** documento (mín. 20 páginas), site funcionando, portfólio (mín. 5 produtos), redes sociais (opcional), apresentação oral.
+**Entregáveis:** documento (mín. 20 páginas), site funcionando, portfólio (mín. 5 produtos), apresentação oral.
 
 ---
 
@@ -136,6 +136,10 @@ Prazo total estimado: 6 meses (24 semanas).
 
 ## 5. Estrutura Organizacional
 
+### Organograma
+
+`[ ]` Desenhar no Draw.io.
+
 ### Papéis e responsabilidades
 
 | Integrante | Nível | Função principal |
@@ -180,7 +184,19 @@ Prazo total estimado: 6 meses (24 semanas).
 
 **Concorrentes:** plataformas proprietárias de sandbox bancário com certificações onerosas e acesso restrito a grandes instituições financeiras.
 
-`[ ]` Parceiros potenciais, fornecedores, oportunidades de mercado, ameaças.
+**Parceiros potenciais:** instituições de ensino, professores orientadores, comunidades de tecnologia, bancos, fintechs, cooperativas de crédito, empresas de infraestrutura em nuvem e programas de fomento à inovação, como editais da FAPDF voltados ao desenvolvimento tecnológico no Distrito Federal.
+
+**Fornecedores:** provedores de nuvem, serviços de domínio e hospedagem, ferramentas de CI/CD, repositórios Git, bancos de dados gerenciados, ferramentas de monitoramento, plataformas de documentação técnica e soluções de segurança para testes de autenticação e autorização.
+
+**Oportunidades de mercado:** crescimento do Open Finance, demanda por profissionais capazes de integrar APIs financeiras, expansão de fintechs, necessidade de ambientes seguros de teste, busca de bancos por aproximação com universidades e interesse público em fomentar inovação tecnológica regional.
+
+**Ameaças:** concorrência com sandboxes proprietários, mudanças regulatórias no Open Finance, dependência de infraestrutura em nuvem, dificuldade de captação inicial de usuários e possível restrição de bancos em apoiar iniciativas externas sem governança clara.
+
+### Parcerias estratégicas
+
+As parcerias com bancos e instituições financeiras serão estruturadas inicialmente em caráter educacional e técnico, sem acesso a dados bancários reais e sem integração direta com contas de clientes. O objetivo será aproximar estudantes e desenvolvedores das práticas do mercado financeiro digital por meio de mentorias, palestras, desafios técnicos, validação de casos de uso, apoio a hackathons e patrocínio de laboratórios de simulação.
+
+Esse modelo reduz riscos jurídicos e operacionais, preserva o caráter acadêmico da empresa júnior e permite que os parceiros contribuam com conhecimento de mercado sem expor informações sensíveis. Para os bancos, a parceria oferece aproximação com talentos em formação, fortalecimento da marca empregadora e incentivo ao ecossistema local de inovação financeira.
 
 ---
 
@@ -221,8 +237,11 @@ A estratégia de sustentabilidade financeira baseia-se na alocação progressiva
 ## 9. Plano de Marketing
 
 - [x] Identidade visual → [[projects/jatai/design-system|Design System Jataí]]
-- [ ] Redes sociais
 - [ ] Site
+
+A divulgação da Jataí será concentrada em canais institucionais e técnicos, sem criação de redes sociais nesta etapa. O principal canal público será o site institucional, complementado por repositório no GitHub, documentação técnica, apresentações em sala, participação em eventos acadêmicos, oficinas com estudantes e aproximação direta com professores, comunidades de tecnologia, bancos e fintechs.
+
+Essa estratégia é coerente com o posicionamento da empresa como plataforma educacional e tecnológica: em vez de depender de presença em redes sociais, a Jataí prioriza credibilidade técnica, demonstração funcional do sandbox, documentação clara e relacionamento com instituições capazes de validar e apoiar o projeto.
 
 ---
 
@@ -250,24 +269,79 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 
 ## 11. Plano Financeiro
 
-- Financiamento inicial via FAPDF (Fundação de Apoio a Pesquisa) com o professor Rodrigo como Proponente.
-- Submissão do projeto via edital de Demanda espontânea ou Apoio à Extensão Tecnológica/Inovação
-- O projeto ganha um subsídio para servidores de infraestrutura AWS, ou pode hostear a infra dentro da IES UnDF ou UnB
-- Os programadores do projeto ganham bolsa de pesquisa para custear
+O plano financeiro da Jataí será baseado em sustentabilidade progressiva. A empresa não terá finalidade lucrativa; portanto, toda receita obtida será reinvestida na infraestrutura tecnológica, na capacitação dos membros, na documentação, na segurança dos ambientes simulados e na manutenção da plataforma.
 
-- Lei da Empresa Júnior (Lei nº 13.267/2016) - Art. 9º, § 3º
-- "A instituição de ensino superior poderá ceder espaço físico a título gratuito para a sede da empresa júnior, bem como autorizar o uso de seus bens e serviços para o desenvolvimento de suas atividades..."
-- A própria lei da EJ tem respaldo na alocação da infraestrutura na própria IES
-- Capital Inicial
-    - Domínio do site R$ 40 por ano
-    - Taxa de registro de CNPJ no cartório
-    - Identidade visual
-    - Reserva de emergência
-    - Capital de giro inicial (pelo menos 3 meses de custeamento)
-`[ ]` Empréstimos.
-`[ ]` Custos fixos.
-`[ ]` Custos variáveis.
-`[ ]` Receita estimada.
+Como a proposta é uma empresa júnior voltada ao aprendizado e uso de APIs financeiras, a base financeira deve equilibrar baixo custo inicial, uso de ferramentas abertas, fomento público à inovação e parcerias estratégicas com instituições financeiras. A Jataí não comercializa dados financeiros reais; ela oferece ambientes de simulação, treinamento técnico e infraestrutura educacional para prototipagem segura.
+
+### Capital inicial
+
+O capital inicial estimado será reduzido, pois a fase de MVP utilizará software livre, repositórios públicos, ferramentas gratuitas de desenvolvimento e camadas gratuitas de provedores de nuvem sempre que possível.
+
+| Item | Estimativa inicial | Finalidade |
+|---|---:|---|
+| Domínio institucional | R$ 50 a R$ 100/ano | Identidade digital da empresa |
+| Hospedagem/site | R$ 0 a R$ 50/mês | Site institucional e documentação |
+| Infraestrutura inicial em nuvem | R$ 0 a R$ 200/mês | APIs simuladas, banco de dados e testes |
+| Identidade visual e materiais | R$ 0 a R$ 150 | Apresentação institucional e artefatos acadêmicos |
+| Reserva técnica | R$ 200 a R$ 500 | Custos imprevistos de infraestrutura e validação |
+
+**Capital inicial sugerido:** entre R$ 300 e R$ 800 para a fase de prototipagem, podendo aumentar conforme o uso real do sandbox.
+
+### Empréstimos e endividamento
+
+Não se recomenda a contratação de empréstimos na fase inicial. Como empresa júnior sem fins lucrativos e com finalidade educacional, a Jataí deve priorizar fomento não reembolsável, apoio institucional, parcerias técnicas e crescimento gradual com base na demanda real. O endividamento só seria considerado em uma fase futura, caso houvesse receita recorrente suficiente e aprovação formal da gestão da associação.
+
+### Fontes de recursos
+
+| Fonte | Descrição | Aplicação prevista |
+|---|---|---|
+| Planos de acesso | Cobrança proporcional ao uso de infraestrutura nos níveis Pro e Advanced | Servidores, banco de dados, monitoramento e suporte |
+| Oficinas e treinamentos | Atividades educacionais sobre APIs financeiras, Open Finance, OAuth2, Pix e testes de integração | Capacitação dos membros e manutenção da plataforma |
+| Projetos sob demanda | Desenvolvimento de ambientes simulados para turmas, professores, comunidades ou pequenas startups | Expansão técnica e documentação |
+| FAPDF / Start BSB | Busca de editais de fomento à inovação, subvenção econômica e desenvolvimento tecnológico no DF | MVP, infraestrutura, validação com usuários e mentoria |
+| Bancos e fintechs parceiras | Apoio institucional, patrocínio de laboratórios, mentorias, desafios técnicos e créditos de infraestrutura | Formação de talentos e validação de casos de uso |
+| Apoio institucional da IES | Espaço físico, orientação docente, divulgação acadêmica e laboratórios | Redução de custos fixos e legitimidade institucional |
+
+### Custos fixos
+
+| Custo | Periodicidade | Justificativa |
+|---|---|---|
+| Domínio | Anual | Presença institucional |
+| Hospedagem do site | Mensal/anual | Site, documentação e página de portfólio |
+| Infraestrutura mínima em nuvem | Mensal | Execução dos microsserviços simulados |
+| Banco de dados de teste | Mensal | Armazenamento de dados sintéticos e ambientes de demonstração |
+| Monitoramento e logs | Mensal | Acompanhamento de uptime, latência e falhas |
+| Ferramentas administrativas | Mensal/anual | Gestão de demandas, versionamento e documentação |
+
+### Custos variáveis
+
+| Custo | Fator de variação |
+|---|---|
+| Processamento em nuvem | Número de usuários, requisições e testes de carga |
+| Armazenamento | Volume de dados sintéticos gerados |
+| Banda de rede | Consumo das APIs e downloads de datasets |
+| Ambientes dedicados | Necessidade de instâncias isoladas para clientes Pro ou Advanced |
+| Oficinas e eventos | Material, divulgação, infraestrutura local e certificados |
+| Segurança e testes | Auditorias, ferramentas de análise e validação de autenticação |
+
+### Receita estimada
+
+Uma projeção inicial conservadora pode considerar o início da operação com foco acadêmico e validação de MVP:
+
+| Fonte | Quantidade | Valor unitário | Receita mensal |
+|---|---:|---:|---:|
+| Plano Pro | 5 usuários | R$ 29 | R$ 145 |
+| Plano Advanced | 2 usuários | R$ 79 | R$ 158 |
+| Oficina ou treinamento | 1 atividade | R$ 300 | R$ 300 |
+| Projetos educacionais pontuais | Conforme demanda | Variável | Variável |
+
+**Receita mensal estimada na fase inicial:** R$ 603, sem considerar editais, patrocínios ou projetos pontuais.
+
+### Estratégia de fomento e parcerias
+
+A Jataí buscará recursos de fomento junto à FAPDF, especialmente em programas voltados à inovação, empreendedorismo tecnológico, desenvolvimento de startups e capacitação técnica no Distrito Federal. Esses recursos poderão ser direcionados à criação do MVP da plataforma, contratação de infraestrutura em nuvem, desenvolvimento dos ambientes simulados, documentação, segurança, capacitação dos membros e validação com turmas, comunidades de tecnologia e pequenas startups.
+
+Além do fomento público, a empresa buscará parcerias diretas com bancos, fintechs e cooperativas de crédito. Essas parcerias deverão ter natureza educacional e técnica, com foco em mentoria, desafios práticos, apoio a laboratórios, palestras, validação de requisitos e aproximação entre estudantes e mercado. Na primeira etapa, as parcerias não envolverão acesso a dados reais de clientes, integração com sistemas bancários de produção ou prestação de serviços financeiros regulados.
 
 **Recursos já mapeados (referência do Jataí Sandbox):**
 - Infraestrutura: servidores em nuvem com escalonamento automático, balanceadores de carga, bancos de dados relacionais para dados de teste
@@ -290,6 +364,54 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 - Art. 7º, § 1º: toda a renda deve ser revertida exclusivamente para as atividades-fim
 - Art. 9º, § 3º: a IES pode ceder espaço físico a título gratuito como sede
 
+**Delimitação regulatória:** a Jataí não atuará como instituição financeira, instituição de pagamento, iniciadora real de transações, correspondente bancário ou prestadora de serviço financeiro regulado pelo Banco Central do Brasil. A atuação inicial será restrita a ambientes simulados, dados sintéticos, treinamento técnico, documentação e prototipagem educacional. Caso a empresa evolua para qualquer integração com sistemas financeiros reais, será necessária nova análise jurídica e regulatória, considerando normas do BACEN, regras do Open Finance Brasil, LGPD e eventuais exigências de autorização, parceria formal ou supervisão por instituição regulada.
+
+### Plano de pesquisa jurídica
+
+1. **Confirmar a natureza jurídica da empresa júnior:** verificar os requisitos da Lei nº 13.267/2016, do Código Civil e das regras internas da IES para constituição, estatuto, registro e funcionamento da associação.
+2. **Mapear obrigações de membros e voluntários:** verificar como formalizar a atuação dos estudantes, termos de adesão ao serviço voluntário, ressarcimento de despesas e vedação de remuneração ou distribuição de excedentes.
+3. **Delimitar a fronteira regulatória financeira:** identificar quais atividades poderiam caracterizar instituição financeira, instituição de pagamento, iniciadora de transação de pagamento, correspondente bancário ou participante do Open Finance regulado.
+4. **Avaliar proteção de dados e segurança:** mapear impactos de LGPD, ANPD e Marco Civil da Internet sobre cadastro de usuários, logs, dados sintéticos, telemetria, suporte e documentação pública.
+5. **Revisar contratos, termos de uso e relação com clientes:** verificar incidência do Código de Defesa do Consumidor nos planos pagos, oficinas, projetos sob demanda e prestação de serviços educacionais.
+6. **Avaliar fomento público e parcerias:** levantar exigências de editais da FAPDF/Start BSB, prestação de contas, despesas elegíveis, propriedade intelectual, contrapartidas e limites para uso dos recursos.
+7. **Revisar propriedade intelectual e licenças:** verificar licenças de código aberto, fontes, ícones, marca, documentação e eventual publicação de repositórios da Jataí.
+8. **Consolidar matriz de riscos jurídicos:** classificar os riscos em constitutivos, trabalhistas, regulatórios, dados, consumo, propriedade intelectual, fomento e contratos.
+
+### Aspectos jurídicos mapeados
+
+| Tema | Impacto para a Jataí | Encaminhamento |
+|---|---|---|
+| Empresa júnior | Deve ser associação civil vinculada à IES, gerida por estudantes de graduação e relacionada ao campo do curso. | Estatuto deve deixar claro vínculo acadêmico, finalidade educacional, ausência de fins lucrativos e relação com a UnDF. |
+| Associação civil | O Código Civil exige estatuto com denominação, fins, sede, admissão/exclusão de associados, direitos/deveres, fontes de recursos, órgãos deliberativos, alteração estatutária, dissolução e aprovação de contas. | Criar checklist estatutário antes da formalização. |
+| Trabalho voluntário | Estudantes associados exercem trabalho voluntário, sem vínculo empregatício. | Criar termo de adesão de voluntário com objeto, condições de atuação e regra de ressarcimento de despesas. |
+| Receita e excedentes | A empresa júnior não pode captar recursos para seus integrantes; toda renda deve voltar às atividades-fim. | Plano financeiro e estatuto devem proibir distribuição de lucros e prever reinvestimento em infraestrutura, capacitação e manutenção. |
+| Relação com a IES | A empresa depende de vínculo institucional, orientação acadêmica e atividades ligadas à formação. | Formalizar professor orientador, plano acadêmico e possível uso de espaço/laboratório da instituição. |
+| BACEN e Open Finance | Somente instituições autorizadas pelo Banco Central podem participar do Open Finance real; instituições de pagamento e iniciadoras de transação exigem regras próprias de autorização. | Manter a Jataí como sandbox educacional, sem dados reais, sem contas, sem movimentação financeira e sem iniciação real de pagamentos. |
+| Instituição de pagamento | Executar ou facilitar pagamentos reais, gerir conta de pagamento, emitir instrumento de pagamento ou movimentar recursos pode aproximar a empresa da regulação de instituições de pagamento. | Qualquer evolução para pagamentos reais deve exigir parceria com instituição regulada e revisão jurídica prévia. |
+| LGPD | Mesmo usando dados sintéticos, haverá tratamento de dados pessoais se a plataforma coletar cadastro, e-mail, logs, IP, métricas de uso ou chamados de suporte. | Criar política de privacidade, base legal para coleta, minimização de dados, canal de atendimento ao titular e medidas de segurança. |
+| ANPD para pequeno porte | Pessoas jurídicas sem fins lucrativos podem se enquadrar como agentes de tratamento de pequeno porte, mas isso não elimina o dever de cumprir LGPD. | Usar registro simplificado de tratamento, política simplificada de segurança e canal de comunicação com titulares. |
+| Marco Civil da Internet | Como aplicação de internet, a plataforma deve observar privacidade, sigilo, segurança de registros, termos claros e eventual guarda de logs conforme o caso. | Criar termos de uso, política de logs, controle de acesso e retenção mínima necessária. |
+| Código de Defesa do Consumidor | Planos pagos, oficinas e projetos educacionais podem caracterizar prestação de serviço remunerada. | Deixar oferta, preço, escopo, limitações, suporte, cancelamento e riscos de uso claramente documentados. |
+| Contratos com bancos | Parcerias podem envolver reputação, confidencialidade, propriedade intelectual, uso de marca e responsabilidade sobre desafios técnicos. | Usar termo de parceria educacional delimitando escopo, ausência de dados reais, responsabilidades e autorização de uso de marca. |
+| Fomento público | Editais podem exigir plano de trabalho, comprovação de despesas, metas, prestação de contas e regras de propriedade intelectual. | Separar orçamento por rubricas e manter rastreabilidade de gastos, notas, entregas e indicadores. |
+| Propriedade intelectual | Código, marca, documentação, fontes e assets precisam de licenças compatíveis. | Definir licença open source do projeto, licença da documentação e regras de contribuição. |
+| Segurança da informação | O tema financeiro aumenta o dever de cuidado, mesmo em simulação. | Adotar segregação de ambientes, dados sintéticos, revisão de dependências, autenticação segura e resposta a incidentes. |
+
+### Fontes jurídicas consultadas
+
+- Lei nº 13.267/2016 — Empresa Júnior: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/lei/l13267.htm
+- Código Civil, arts. 53 e 54 — Associações: https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm
+- Lei nº 9.608/1998 — Serviço voluntário: https://www.planalto.gov.br/ccivil_03/leis/l9608compilado.htm
+- LGPD, Lei nº 13.709/2018: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm
+- Resolução CD/ANPD nº 2/2022 — Agentes de tratamento de pequeno porte: https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd/resolucao-cd-anpd-no-2-de-27-de-janeiro-de-2022
+- Marco Civil da Internet, Lei nº 12.965/2014: https://planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm
+- Código de Defesa do Consumidor, Lei nº 8.078/1990: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm
+- Lei nº 12.865/2013 — Arranjos e instituições de pagamento: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2013/lei/l12865.htm
+- BACEN — Instituições de pagamento: https://www.bcb.gov.br/estabilidadefinanceira/instituicaopagamento
+- BACEN — Open Finance: https://www.bcb.gov.br/meubc/faqs/s/open-finance
+- Resolução Conjunta nº 5/2022 — Interoperabilidade no Open Finance: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=5&tipo=Resolu%C3%A7%C3%A3o+Conjunta
+- Instrução Normativa BCB nº 724/2026 — Manual de Escopo de Dados e Serviços do Open Finance v7.0: https://bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=724&tipo=Instru%C3%A7%C3%A3o+Normativa+BCB
+
 `[ ]` Documentos necessários para abertura.
 `[ ]` Licenças e autorizações específicas.
 
@@ -297,45 +419,131 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 
 ## 13. Sustentabilidade e Responsabilidade Social
 
-`[ ]` Ações ambientais.
-`[ ]` Projetos sociais.
-- Campus Party
-- Hackatons no Distrito Federal
-`[ ]` Inclusão e acessibilidade.
-`[ ]` Impacto social esperado.
-- Proporcionar o aprendizado em integração de gateways de pagamento em aplicações de forma acessível
+### Plano de escrita da seção
+
+**Tese central:** a sustentabilidade da Jataí não deve ser apresentada apenas como redução de custos ou uso eficiente de infraestrutura, mas como capacidade de manter uma comunidade técnica ativa, inclusiva e aberta, voltada à formação de jovens desenvolvedores no ecossistema de APIs financeiras.
+
+**Pontos que a seção deve cobrir:**
+1. Comunidade open source como forma de compartilhamento de conhecimento, documentação e evolução coletiva do projeto.
+2. Hackathons e eventos de computação como espaços de aprendizado prático, validação de ideias e aproximação com bancos, fintechs e professores.
+3. Inclusão de estudantes iniciantes, especialmente jovens que ainda não tiveram contato com APIs, autenticação, Open Finance, Pix, segurança e dados sintéticos.
+4. Acessibilidade técnica: tutoriais, exemplos simples, documentação clara, ambiente gratuito e trilhas de aprendizado progressivas.
+5. Responsabilidade social: formar talentos locais, reduzir barreiras de entrada no mercado financeiro digital e aproximar universidade, comunidade e setor produtivo.
+6. Sustentabilidade ambiental: uso consciente de nuvem, limites de consumo, desligamento de ambientes ociosos e preferência por infraestrutura sob demanda.
+7. Indicadores de impacto: número de participantes em oficinas, contribuições open source, projetos criados em hackathons, estudantes atendidos e satisfação dos usuários.
+
+### Ações ambientais
+
+A Jataí adotará uma política de uso consciente de infraestrutura digital. Como a plataforma depende de servidores, bancos de dados e ambientes de teste em nuvem, a empresa buscará reduzir desperdício computacional por meio de limites de uso, desligamento de ambientes ociosos, monitoramento de consumo, reaproveitamento de recursos gratuitos e dimensionamento progressivo conforme a demanda real.
+
+Além disso, o uso de ambientes simulados reduz a necessidade de infraestrutura física dedicada para laboratórios locais, permitindo que estudantes acessem recursos de aprendizado pela internet sem depender de equipamentos próprios de alto custo.
+
+### Projetos sociais
+
+A principal contribuição social da Jataí será a formação prática de jovens e estudantes em tecnologias ligadas ao mercado financeiro digital. A empresa poderá organizar oficinas, minicursos, desafios técnicos e hackathons voltados a temas como consumo de APIs, autenticação com OAuth2/OpenID Connect, Open Finance, Pix, testes de integração, dados sintéticos e boas práticas de segurança.
+
+Essas ações poderão ser realizadas em parceria com a UnDF, professores, comunidades open source, eventos de computação, bancos, fintechs e cooperativas de crédito. O objetivo é criar um ambiente em que estudantes iniciantes consigam aprender fazendo, construir portfólio técnico e compreender problemas reais do ecossistema financeiro sem precisar acessar dados bancários reais ou infraestrutura regulada.
+
+### Inclusão e acessibilidade
+
+A Jataí buscará reduzir barreiras de entrada para pessoas jovens ou iniciantes em tecnologia. Para isso, a plataforma deverá oferecer documentação clara, exemplos práticos, projetos de referência, tutoriais introdutórios e um plano gratuito de acesso ao sandbox. A linguagem técnica deverá ser progressiva: primeiro explicando conceitos básicos de API, requisição HTTP, autenticação e dados de teste; depois avançando para temas como Open Finance, Pix, webhooks, telemetria e segurança.
+
+O projeto também deverá incentivar participação de estudantes que ainda não possuem experiência profissional, permitindo contribuições open source em documentação, testes, exemplos de código, design, suporte e melhoria da experiência de uso. Dessa forma, a Jataí não se limita a atender usuários avançados; ela funciona como ponte entre o aprendizado acadêmico e os desafios reais do mercado.
+
+### Comunidade open source e eventos
+
+A estratégia social da Jataí será apoiada em comunidade aberta. O repositório público poderá concentrar código, documentação, exemplos de integração, issues para iniciantes e trilhas de contribuição. Essa abertura permite que estudantes aprendam por leitura de código real, participem de revisões, proponham melhorias e construam experiência colaborativa.
+
+Hackathons, semanas acadêmicas, eventos de computação e encontros com comunidades técnicas serão usados como canais de difusão e validação. Nesses eventos, a Jataí poderá propor desafios como criação de dashboards financeiros fictícios, integração com APIs simuladas, geração de dados sintéticos, automação de testes e construção de soluções para educação financeira. O foco não será competição por si só, mas criação de experiências práticas de aprendizado.
+
+### Impacto social esperado
+
+Espera-se que a Jataí contribua para ampliar o acesso de estudantes e jovens desenvolvedores ao universo das APIs financeiras, especialmente em um contexto no qual ambientes reais de Open Finance costumam ser complexos, regulados e de difícil acesso para iniciantes. Ao oferecer um sandbox educacional, gratuito em sua camada inicial e apoiado por documentação aberta, a empresa cria condições para que mais pessoas desenvolvam competências técnicas valorizadas pelo mercado.
+
+O impacto esperado inclui:
+
+- formação de estudantes em integração de APIs financeiras;
+- fortalecimento de comunidades open source locais;
+- criação de portfólios técnicos por jovens desenvolvedores;
+- aproximação entre universidade, bancos, fintechs e eventos de tecnologia;
+- incentivo à inovação em soluções financeiras inclusivas;
+- redução da distância entre teoria acadêmica e prática profissional.
+
+**Indicadores sugeridos:**
+
+| Indicador | Meta inicial |
+|---|---:|
+| Estudantes atendidos em oficinas e eventos | 50 participantes no primeiro ciclo |
+| Projetos criados em hackathons ou desafios | 10 protótipos |
+| Contribuições open source recebidas | 20 contribuições |
+| Issues para iniciantes resolvidas | 15 issues |
+| Satisfação dos participantes | 85% de aprovação |
+| Materiais educacionais publicados | 5 tutoriais ou guias |
 
 ---
 
 ## 14. Gestão da Qualidade
 
-`[ ]` Como medir a satisfação dos clientes.
-`[ ]` Indicadores de qualidade.
-`[ ]` Processo de melhoria contínua.
-`[ ]` Tratamento de reclamações.
+A gestão da qualidade da Jataí será baseada em três dimensões: qualidade técnica da plataforma, qualidade educacional da experiência de aprendizado e qualidade do atendimento aos usuários. Como a empresa atua com APIs simuladas e público em formação, não basta que os serviços estejam disponíveis; eles precisam ser compreensíveis, seguros, bem documentados e úteis para estudantes, desenvolvedores iniciantes, professores e comunidades técnicas.
+
+### Como medir a satisfação dos clientes
+
+A satisfação será medida por formulários simples aplicados após oficinas, uso do sandbox, participação em hackathons e conclusão de projetos educacionais. Os usuários deverão avaliar clareza da documentação, facilidade de uso das APIs, estabilidade da plataforma, utilidade dos exemplos, qualidade do suporte e contribuição da experiência para o aprendizado.
+
+Também serão analisados sinais indiretos de satisfação, como retorno dos usuários à plataforma, número de projetos criados, participação em eventos, contribuições no repositório, abertura de issues construtivas e recomendação da Jataí para outros estudantes ou comunidades.
+
+### Indicadores de qualidade
+
+| Indicador | Meta inicial | Finalidade |
+|---|---:|---|
+| Satisfação dos usuários | 85% de aprovação | Medir percepção geral de valor |
+| Disponibilidade da plataforma | 99,5% na fase piloto | Garantir acesso contínuo ao sandbox |
+| Latência média das APIs | Até 200ms por requisição simples | Avaliar desempenho técnico |
+| Tempo médio de resposta a dúvidas | Até 48 horas úteis | Medir qualidade do suporte |
+| Cobertura de documentação | 100% dos produtos com guia básico | Reduzir barreira de entrada |
+| Taxa de resolução de bugs críticos | 90% em até 7 dias | Preservar confiabilidade |
+| Participantes que concluem tutoriais | 70% dos inscritos | Medir efetividade educacional |
+| Projetos funcionais em eventos | 10 protótipos por ciclo | Medir aplicabilidade prática |
+
+### Processo de melhoria contínua
+
+A melhoria contínua seguirá um ciclo simples:
+
+1. **Coleta:** reunir feedback de usuários, professores, parceiros, issues do GitHub, formulários de eventos, logs técnicos e métricas de uso.
+2. **Classificação:** separar demandas por tipo: erro técnico, melhoria de documentação, dificuldade de aprendizado, solicitação de funcionalidade, risco de segurança ou problema de atendimento.
+3. **Priorização:** avaliar impacto, urgência, esforço e alinhamento com o objetivo educacional da empresa.
+4. **Correção ou melhoria:** implementar ajustes em APIs, documentação, exemplos, interface, infraestrutura ou processo de suporte.
+5. **Validação:** testar a solução com usuários reais ou em ambiente de homologação.
+6. **Registro:** documentar a mudança, atualizar materiais e registrar lições aprendidas.
+
+Esse ciclo será conduzido principalmente por Luiz no nível tático, com apoio operacional da Karoline na análise técnica e apoio estratégico de Leonardo na priorização de impacto institucional e relacionamento com parceiros.
+
+### Tratamento de reclamações
+
+As reclamações serão recebidas por formulário no site, issues no repositório ou canal institucional definido pela equipe. Cada reclamação deverá ser registrada com data, tipo, impacto, responsável e status. Reclamações críticas, como indisponibilidade, falha de autenticação, exposição indevida de dados ou erro que impeça o uso das APIs, terão prioridade máxima.
+
+O processo de atendimento seguirá quatro etapas: recebimento, triagem, resposta inicial e resolução. Mesmo quando a solução não puder ser imediata, o usuário deverá receber retorno claro sobre o encaminhamento. Reclamações recorrentes deverão gerar melhoria estrutural, como atualização de documentação, mudança de fluxo, criação de tutorial ou correção no produto.
 
 ---
 
 ## 15. Gestão de Riscos
 
-| Risco                                                                                                                      | Tipo        | Mitigação                                                                                                                     |
-| -------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Indisponibilidade de serviços em nuvem ou interrupções no provedor de hospedagem, comprometendo o acesso à plataforma      | Operacional | Mapear provedores alternativos e estabelecer estratégia de failover com balanceamento entre regiões                           |
-| Corrupção do escopo — inserção contínua de novos endpoints e funcionalidades atrasando as entregas centrais                | Operacional | Controle rígido das especificações técnicas iniciais; qualquer alteração no escopo deve ser aprovada pelo gerente de projetos |
-| Vulnerabilidades de segurança nos fluxos de autenticação simulados (OAuth2/OpenID Connect) que possam expor dados de teste | Técnico     | Etapa intensiva de testes de penetração e revisão de segurança antes da liberação para usuários externos                      |
-
-`[ ]` Riscos financeiros.
-`[ ]` Riscos de mercado.
-`[ ]` Riscos tecnológicos.
-
 | **Risco**                                                                                                                           | **Tipo**        | **Mitigação**                                                                                                                                                                                                     |
 | ----------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Indisponibilidade de serviços em nuvem** ou interrupções no provedor de hospedagem, comprometendo o acesso à plataforma.          | Operacional     | Mapear provedores alternativos e estabelecer estratégia de _failover_ com balanceamento entre diferentes regiões.                                                                                                 |
 | **Vulnerabilidades de segurança** nos fluxos de autenticação simulados (OAuth2/OpenID Connect) que possam expor dados de teste.     | Técnico         | Etapa intensiva de testes de penetração e revisão de segurança antes da liberação para usuários externos, sob supervisão da Karoline.                                                                             |
+| **Corrupção do escopo** por inclusão contínua de novos endpoints, integrações e funcionalidades além da capacidade do grupo.          | Operacional     | Definir MVP fechado para a primeira etapa, manter backlog separado para futuras versões e exigir aprovação do responsável tático antes de alterar escopo, prazo ou prioridade.                                    |
+| **Documentação insuficiente para estudantes iniciantes.**                                                                            | Educacional     | Criar guias de primeiros passos, exemplos práticos, tutoriais por nível de dificuldade e revisão dos materiais com usuários iniciantes antes da publicação.                                                       |
+| **Baixa participação da comunidade open source.**                                                                                    | Comunidade      | Criar issues para iniciantes, guia de contribuição, calendário de eventos, desafios técnicos e reconhecimento público das contribuições.                                                                            |
 | **Estouro de orçamento de infraestrutura** devido ao consumo excessivo de processamento/banda nos níveis Pro/Advanced.              | **Financeiro**  | Implementação rigorosa de _rate limiting_ por IP/token no nível gratuito; alertas automatizados de consumo na nuvem (AWS/GCP) e teto de gastos (_hard limits_) configurados diretamente no painel do provedor.    |
 | **Inadimplência ou falta de tração de assinantes** nos planos pagos, inviabilizando o autofinanciamento da associação.              | **Financeiro**  | Utilização máxima de _tiers_ gratuitos de provedores na fase de desenvolvimento e validação do MVP com as turmas piloto para refinar a proposta de valor antes da cobrança.                                       |
+| **Dependência excessiva de editais de fomento** sem geração de receita própria recorrente.                                           | **Financeiro**  | Usar FAPDF e programas similares para acelerar o MVP, mas manter planos de acesso, oficinas, projetos educacionais e parcerias como fontes complementares de sustentabilidade.                                     |
+| **Parcerias bancárias com exigências incompatíveis com a fase acadêmica do projeto.**                                                | **De Mercado**  | Firmar parcerias inicialmente educacionais, sem dados reais e sem integração com produção, delimitando escopo, responsabilidades e benefícios para cada instituição envolvida.                                      |
 | **Baixa adoção da comunidade** devido à concorrência indireta com sandboxes proprietários de grandes instituições financeiras.      | **De Mercado**  | Posicionamento estratégico focado na ausência de burocracia (sem necessidade de chaves CNPJ ou certificados e-PJ onerosos) e parcerias diretas com coordenadores de cursos de TI e organizadores de hackathons.   |
+| **Uso indevido da plataforma para simular golpes, fraude ou engenharia social.**                                                     | Segurança       | Definir termos de uso, limitar funcionalidades sensíveis, monitorar padrões abusivos, bloquear contas maliciosas e reforçar que a plataforma é exclusivamente educacional.                                        |
+| **Coleta excessiva de dados pessoais de usuários da plataforma.**                                                                    | Privacidade     | Aplicar minimização de dados, usar dados sintéticos por padrão, manter política de privacidade e revisar periodicamente os dados coletados em cadastro, logs e telemetria.                                        |
 | **Mudanças regulatórias abruptas** nas especificações do Open Finance pelo Banco Central, tornando os simuladores obsoletos.        | **Tecnológico** | Arquitetura de microsserviços modular e desacoplada. Luiz e Karoline devem acompanhar o roadmap oficial do ecossistema de finanças abertas para antecipar atualizações nas APIs e nos perfis de segurança (FAPI). |
+| **Mudanças nas regras do BACEN para funcionamento de instituições financeiras e de pagamento.**                                     | **Regulatório** | Manter a Jataí restrita à simulação educacional, sem operar recursos financeiros, contas reais ou dados bancários de clientes. Antes de qualquer expansão para integrações reais, realizar revisão jurídica e parceria com instituição regulada. |
 
 
 
@@ -344,6 +552,8 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 ## 16. Tecnologia e Inovação
 
 **Ferramentas:** site em AstroJS, microsserviços em Node.js/TypeScript, contêineres Docker, banco de dados PostgreSQL para dados de teste, OAuth2/OpenID Connect para autenticação simulada. `[ ]` Sistema de gestão. `[ ]` Inovações propostas.
+
+**Premissa tecnológica e regulatória:** a arquitetura da plataforma deverá ser modular para permitir atualização rápida dos fluxos simulados sempre que houver mudanças em normas do BACEN, padrões do Open Finance Brasil ou práticas de segurança usadas pelo mercado. Essa flexibilidade reduz o risco de obsolescência e preserva o valor educacional da Jataí mesmo quando o ambiente regulatório evoluir.
 
 ---
 
@@ -380,7 +590,7 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 - [x] Organograma no Draw.io ✅ 2026-07-13
 - [x] Fluxograma de atendimento no Bizagi ✅ 2026-07-13
 - [ ] Gráfico de Gantt
-- [ ] Redes sociais (opcional)
+- [x] Redes sociais fora do escopo ✅ 2026-07-16
 - [ ] Slides + apresentação oral
 
 ---
@@ -396,5 +606,5 @@ Local de Antendimento será na IES da UnDF localizada no Lago Norte
 7. ~~Pesquisar tipo jurídico para empresa sem fins lucrativos (seção 12)~~ ✓
 8. Montar cronograma semanal + Gantt (seção 18)
 9. Site: AstroJS + GitHub Pages
-10. Preencher seções ainda vazias: 6, 7 (completa), 9, 11, 13, 14, 16
+10. Preencher seções ainda vazias: 6, 13, 14, 16
 11. Dividir tarefas restantes entre os 3 integrantes
