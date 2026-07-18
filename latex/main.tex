@@ -1,0 +1,443 @@
+% !TEX program = xelatex
+% Base acadêmica da UnDF para o Projeto Final — Empresa Júnior
+% Conteúdo-fonte: ../projeto-empresa-junior.md
+\documentclass[
+  12pt,
+  openright,
+  oneside,
+  a4paper,
+  brazilian
+]{abntex2}
+
+% -----------------------------------------------------------------------------
+% Pacotes
+% -----------------------------------------------------------------------------
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+\setsansfont{Times New Roman}
+\usepackage{microtype}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage[
+  backend=biber,
+  style=abnt,
+  sccite=false,
+  accite=false,
+  ittitles=true,
+  giveninits=true,
+  uniquename=false,
+  maxcitenames=3,
+  maxbibnames=99
+]{biblatex}
+\addbibresource{referencias.bib}
+\graphicspath{{figuras/}}
+
+% -----------------------------------------------------------------------------
+% Dados do trabalho — edite estes campos antes da entrega
+% -----------------------------------------------------------------------------
+\newcommand{\instituicaoNome}{Universidade do Distrito Federal Professor Jorge Amaury Maia Nunes}
+\newcommand{\instituicaoSigla}{UnDF}
+\newcommand{\professorNome}{Prof. Rodrigo Torres Carrilho da Costa}
+\newcommand{\cidadeNome}{Brasília}
+\newcommand{\anoEntrega}{2026}
+\newcommand{\disciplina}{Estágio Empresarial II}
+
+\titulo{Jataí: empresa júnior para formação técnica em
+\newline\texorpdfstring{\textit{Open Finance}}{Open Finance}}
+\autor{Leonardo Brito Gomes \\ Luiz Gustavo Silva Carvalho \\ Karoline Rodrigues Costa}
+\local{\cidadeNome}
+\data{\anoEntrega}
+\instituicao{%
+  \instituicaoNome{} (\instituicaoSigla)
+}
+\tipotrabalho{Trabalho acadêmico}
+\preambulo{Trabalho acadêmico apresentado à \instituicaoNome{} (\instituicaoSigla),
+como entrega final para a matéria de \disciplina, sob orientação do \professorNome.}
+
+% -----------------------------------------------------------------------------
+% Aparência e formatação
+% -----------------------------------------------------------------------------
+\definecolor{jatai}{HTML}{B56B1C}
+\definecolor{linkcolor}{HTML}{5B3510}
+
+\hypersetup{
+  pdftitle={Jataí: proposta de empresa júnior para formação técnica em Open Finance},
+  pdfauthor={Leonardo Brito Gomes; Luiz Gustavo Silva Carvalho; Karoline Rodrigues Costa},
+  pdfsubject={Projeto acadêmico de empresa júnior},
+  hidelinks,
+  bookmarksdepth=4
+}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{noitemsep,topsep=0.5em}
+\setlist[enumerate]{noitemsep,topsep=0.5em}
+\renewcommand{\arraystretch}{1.25}
+\urlstyle{same}
+
+% Referências em espaço simples, separadas entre si por uma linha simples.
+\AtBeginBibliography{%
+  \SingleSpacing
+  \setlength{\bibitemsep}{\baselineskip}
+}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\openfinance}{\textit{Open Finance}}
+\newcommand{\opensource}{\textit{open source}}
+\newcommand{\sandbox}{\textit{sandbox}}
+
+% O abnTeX2 usa uma fonte sem serifa nos títulos por padrão. As redefinições
+% abaixo mantêm Times New Roman também em capítulos, seções e elementos da capa.
+\renewcommand{\ABNTEXchapterfont}{\rmfamily}
+\renewcommand{\ABNTEXsectionfont}{\rmfamily}
+\renewcommand{\ABNTEXsubsectionfont}{\rmfamily}
+
+% Paginação no canto superior direito em todas as páginas do texto, inclusive
+% nas páginas pares e nas primeiras páginas das seções primárias.
+\makepagestyle{academico}
+\makeevenhead{academico}{}{}{\ABNTEXfontereduzida\thepage}
+\makeoddhead{academico}{}{}{\ABNTEXfontereduzida\thepage}
+\makeevenfoot{academico}{}{}{}
+\makeoddfoot{academico}{}{}{}
+
+\begin{document}
+\selectlanguage{brazilian}
+\frenchspacing
+
+% -----------------------------------------------------------------------------
+% Elementos pré-textuais
+% -----------------------------------------------------------------------------
+\pretextual
+
+\begin{capa}
+  \centering
+  \includegraphics[width=5cm]{undf-marca-vertical.png}\\[0.8cm]
+
+  \vfill
+  {\ABNTEXchapterfont\large\imprimirautor}
+
+  \vfill
+  {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+
+  \vfill
+  \imprimirlocal\\
+  \imprimirdata
+\end{capa}
+
+\begin{folhaderosto}
+  \centering
+  {\ABNTEXchapterfont\large\imprimirautor}
+
+  \vfill
+  {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+
+  \vfill
+  \begin{minipage}{0.52\textwidth}
+    \SingleSpacing
+    \imprimirpreambulo
+  \end{minipage}
+
+  \vfill
+  \imprimirlocal\\
+  \imprimirdata
+\end{folhaderosto}
+
+\begin{resumo}
+% Escreva aqui o resumo do trabalho.
+%
+% \vspace{\onelineskip}
+% \noindent
+% \textbf{Palavras-chave}: palavra-chave 1; palavra-chave 2; palavra-chave 3.
+\end{resumo}
+
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+
+% -----------------------------------------------------------------------------
+% Elementos textuais
+% -----------------------------------------------------------------------------
+\textual
+\pagestyle{academico}
+\aliaspagestyle{chapter}{academico}
+
+\chapter{Introdução}
+
+% Escreva aqui a introdução.
+
+\section{Objetivo geral}
+
+% Escreva aqui o objetivo geral.
+
+\section{Objetivos específicos}
+
+% \begin{itemize}
+%   \item Escreva aqui um objetivo específico.
+%   \item Escreva aqui outro objetivo específico.
+% \end{itemize}
+
+\section{Metodologia}
+
+% Escreva aqui a metodologia.
+
+\chapter{Identificação da Empresa}
+
+\section{Caracterização}
+
+% \begin{description}
+%   \item[Nome:] 
+%   \item[Ramo de atuação:] 
+%   \item[Natureza:] 
+% \end{description}
+
+\section{Missão, visão e valores}
+
+\subsection{Missão}
+% Escreva aqui a missão.
+
+\subsection{Visão}
+% Escreva aqui a visão.
+
+\subsection{Valores}
+% \begin{itemize}
+%   \item Escreva aqui um valor.
+% \end{itemize}
+
+\section{História da criação}
+
+% Escreva aqui a história da criação.
+
+\chapter{Problema da Comunidade}
+
+% Escreva aqui o problema da comunidade.
+
+\chapter{Solução Proposta}
+
+% Escreva aqui a solução proposta.
+
+\section{Benefícios esperados}
+% \begin{itemize}
+%   \item Escreva aqui um benefício esperado.
+% \end{itemize}
+
+\chapter{Planejamento Estratégico}
+\section{Nível estratégico}
+% Escreva aqui o nível estratégico.
+
+\section{Nível tático}
+% Escreva aqui o nível tático.
+
+\section{Nível operacional}
+% Escreva aqui o nível operacional.
+
+\section{Cronograma macro}
+
+% \begin{table}[htb]
+%   \centering
+%   \caption{Cronograma macro}
+%   \label{tab:cronograma-macro}
+%   \begin{tabularx}{\textwidth}{c l Y}
+%     \toprule
+%     \textbf{Mês} & \textbf{Fase} & \textbf{Atividades principais} \\
+%     \midrule
+%     1 &  &  \\
+%     \bottomrule
+%   \end{tabularx}
+%   \fonte{Elaboração própria.}
+% \end{table}
+
+\chapter{Estrutura Organizacional}
+\section{Organograma}
+
+% \begin{figure}[htb]
+%   \centering
+%   % \includegraphics[width=0.9\textwidth]{nome-do-arquivo.png}
+%   \caption{Organograma}
+%   \label{fig:organograma}
+%   \fonte{Elaboração própria.}
+% \end{figure}
+
+\section{Papéis e responsabilidades}
+% \begin{table}[htb]
+%   \centering
+%   \caption{Papéis e responsabilidades}
+%   \label{tab:papeis}
+%   \begin{tabularx}{\textwidth}{l l Y}
+%     \toprule
+%     \textbf{Integrante} & \textbf{Nível} & \textbf{Função principal} \\
+%     \midrule
+%      &  &  \\
+%     \bottomrule
+%   \end{tabularx}
+%   \fonte{Elaboração própria.}
+% \end{table}
+
+\chapter{Recursos Humanos}
+
+% Escreva aqui sobre recursos humanos.
+
+\chapter{Análise de Mercado}
+\section{Público-alvo}
+% Escreva aqui o público-alvo.
+
+\section{Concorrentes}
+% Escreva aqui os concorrentes.
+
+\section{Parceiros e fornecedores}
+% Escreva aqui os parceiros e fornecedores.
+
+\section{Oportunidades e ameaças}
+% Escreva aqui as oportunidades e ameaças.
+
+\section{Parcerias estratégicas}
+% Escreva aqui as parcerias estratégicas.
+
+\chapter{Portfólio de Produtos e Serviços}
+\section{Jataí \textit{Core API}}
+% Escreva aqui sobre o produto ou serviço.
+
+\section{Jataí \textit{Pay Sandbox}}
+% Escreva aqui sobre o produto ou serviço.
+
+\section{Jataí \textit{Auth}}
+% Escreva aqui sobre o produto ou serviço.
+
+\section{Jataí \textit{Chaos \& Telemetry}}
+% Escreva aqui sobre o produto ou serviço.
+
+\section{Jataí \textit{DataGen}}
+% Escreva aqui sobre o produto ou serviço.
+
+\section{Níveis de acesso e precificação}
+% Escreva aqui os níveis de acesso e precificação.
+
+\chapter{Plano de Marketing}
+\section{Posicionamento}
+% Escreva aqui o posicionamento.
+
+\section{Canais de divulgação}
+% Escreva aqui os canais de divulgação.
+
+\section{Identidade visual}
+% Escreva aqui a identidade visual.
+
+\chapter{Plano Operacional}
+\section{Escopo e fora do escopo}
+% Escreva aqui o escopo e o fora do escopo.
+
+\section{Local e horário de atendimento}
+% Escreva aqui o local e horário de atendimento.
+
+\section{Equipamentos e tecnologia}
+% Escreva aqui os equipamentos e a tecnologia.
+
+\section{Fluxo de atendimento}
+% Escreva aqui o fluxo de atendimento.
+
+\chapter{Plano Financeiro}
+\section{Capital inicial}
+% Escreva aqui o capital inicial.
+
+\section{Fontes de recursos}
+% Escreva aqui as fontes de recursos.
+
+\section{Custos fixos e variáveis}
+% Escreva aqui os custos fixos e variáveis.
+
+\section{Receita estimada}
+% Escreva aqui a receita estimada.
+
+\section{Fomento e parcerias}
+% Escreva aqui o fomento e as parcerias.
+
+\chapter{Aspectos Legais}
+
+% Escreva aqui os aspectos legais.
+
+\section{Natureza jurídica e vínculo com a UnDF}
+% Escreva aqui a natureza jurídica e o vínculo com a UnDF.
+
+\section{Proteção de dados e privacidade}
+% Escreva aqui sobre proteção de dados e privacidade.
+
+\section{Delimitação regulatória}
+% Escreva aqui a delimitação regulatória.
+
+\section{Propriedade intelectual e licenças}
+% Escreva aqui a propriedade intelectual e licenças.
+
+\chapter{Sustentabilidade e Responsabilidade Social}
+\section{Ações ambientais}
+% Escreva aqui as ações ambientais.
+
+\section{Projetos sociais}
+% Escreva aqui os projetos sociais.
+
+\section{Inclusão e acessibilidade}
+% Escreva aqui sobre inclusão e acessibilidade.
+
+\section{Comunidade \opensource{} e eventos}
+% Escreva aqui sobre comunidade e eventos.
+
+\section{Indicadores de impacto}
+% Escreva aqui os indicadores de impacto.
+
+\chapter{Gestão da Qualidade}
+\section{Satisfação dos usuários}
+% Escreva aqui sobre satisfação dos usuários.
+
+\section{Indicadores de qualidade}
+% Escreva aqui os indicadores de qualidade.
+
+\section{Melhoria contínua}
+% Escreva aqui sobre melhoria contínua.
+
+\section{Tratamento de reclamações}
+% Escreva aqui o tratamento de reclamações.
+
+\chapter{Gestão de Riscos}
+\section{Riscos técnicos e operacionais}
+% Escreva aqui os riscos técnicos e operacionais.
+
+\section{Riscos financeiros e de mercado}
+% Escreva aqui os riscos financeiros e de mercado.
+
+\section{Riscos jurídicos e regulatórios}
+% Escreva aqui os riscos jurídicos e regulatórios.
+
+\section{Plano de mitigação}
+% Escreva aqui o plano de mitigação.
+
+\chapter{Tecnologia e Inovação}
+
+% Escreva aqui sobre tecnologia e inovação.
+
+\chapter{Resultados Esperados}
+
+% Escreva aqui os resultados esperados.
+
+\chapter{Cronograma de Criação}
+
+% Escreva aqui o cronograma de criação.
+
+\chapter{Considerações Finais}
+
+% Escreva aqui as considerações finais.
+
+% -----------------------------------------------------------------------------
+% Elementos pós-textuais
+% -----------------------------------------------------------------------------
+\postextual
+\printbibliography[heading=bibintoc,title={Referências}]
+
+\end{document}
