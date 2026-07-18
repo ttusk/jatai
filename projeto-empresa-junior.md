@@ -583,13 +583,6 @@ O processo de atendimento seguirá quatro etapas: recebimento, triagem, resposta
 
 ## Referências para fundamentação teórica
 
-### Open Finance, Open Banking e economia de APIs
-
-- ZACHARIADIS, Markos; OZCAN, Pinar. **The API Economy and Digital Transformation in Financial Services: The Case of Open Banking**. SWIFT Institute Working Paper, 2017. Disponível em: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2975199.
-- PANDY, Susan M. **Modernizing U.S. Financial Services with Open Banking and APIs**. Federal Reserve Bank of Boston, 2021. Disponível em: https://www.bostonfed.org/publications/payment-strategies/modernizing-us-financial-services-with-open-banking-and-apis.
-- PLAITAKIS, Ariadne; STASCHEN, Stefan. **Open Banking: How to Design for Financial Inclusion**. CGAP, 2020. Disponível em: https://www.cgap.org/research/publication/open-banking-how-to-design-for-financial-inclusion.
-- LYNN, Theo; ROSATI, Pierangelo; CUMMINS, Mark. **Exploring open banking and banking-as-a-platform: opportunities and risks for emerging markets**. In: _Entrepreneurial Finance in Emerging Markets_. Cham: Springer, 2020. Disponível em: https://pureportal.strath.ac.uk/en/publications/exploring-open-banking-and-banking-as-a-platform-opportunities-an/.
-
 ### Regulação, BACEN e sandbox financeiro
 
 - BANCO CENTRAL DO BRASIL. **Open Finance**. Disponível em: https://www.bcb.gov.br/meubc/faqs/s/open-finance.
@@ -597,13 +590,6 @@ O processo de atendimento seguirá quatro etapas: recebimento, triagem, resposta
 - RANGEL, Juliana Cabral Coelho. **Abordagens regulatórias experimentais para a inovação no sistema financeiro: uma análise do instrumento do sandbox e sua implementação no Brasil**. BNDES, 2022. Disponível em: https://web.bndes.gov.br/bib/jspui/handle/1408/22866?locale=pt_BR.
 - WANG, Y.; ZHOU, Z. **Effectiveness of Regulatory Sandboxes in Financial Services: A Systematic Review**. _Regulation & Governance_, 2026. Disponível em: https://onlinelibrary.wiley.com/doi/10.1111/rego.70129.
 
-### Open source, aprendizagem prática e hackathons
-
-- AHN, June et al. **Learning and best practices for learning in open-source software communities**. _Computers & Education_, v. 63, p. 98-108, 2013. Disponível em: https://www.sciencedirect.com/science/article/pii/S0360131512002862.
-- NASCIMENTO, Debora M. C.; BITTENCOURT, Roberto A.; CHAVEZ, Christina. **Open Source Projects in Software Engineering Education: A Mapping Study**. _Computer Science Education_, v. 25, n. 1, p. 67-114, 2015. Disponível em: https://eric.ed.gov/?id=EJ1061159.
-- PORRAS, Jari et al. **Code camps and hackathons in education: literature review and lessons learned**. HICSS, 2019. Disponível em: https://www.gotriple.eu/documents/ftunivhawaiimano%3Aoai%3Ascholarspace.manoa.hawaii.edu%3A10125%2F60213.
-- **Youth Hackathons in Computing for the Community: A Design Case**. _PMC_, 2023. Disponível em: https://pmc.ncbi.nlm.nih.gov/articles/PMC10159829/.
-- DZIALLAS, Sebastian et al. **Adopting a New Practice: Open Source Experiences in the Classroom**. IEEE Frontiers in Education Conference, 2022. Disponível em: https://kar.kent.ac.uk/99028/.
 
 ### Segurança, privacidade e responsabilidade jurídica
 
@@ -611,13 +597,6 @@ O processo de atendimento seguirá quatro etapas: recebimento, triagem, resposta
 - BRASIL. **Lei nº 12.965/2014 — Marco Civil da Internet**. Disponível em: https://planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm.
 - BRASIL. **Lei nº 13.267/2016 — Lei da Empresa Júnior**. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2016/lei/l13267.htm.
 - BRASIL. **Lei nº 9.608/1998 — Serviço voluntário**. Disponível em: https://www.planalto.gov.br/ccivil_03/leis/l9608compilado.htm.
-- **Cyber Risk Management of API-Enabled Financial Crime in Open Banking Services**. _Entropy_, MDPI, 2026. Disponível em: https://www.mdpi.com/1099-4300/28/2/163.
-
-### Possível recorte para o artigo
-
-**Título sugerido:** Sandboxes educacionais open source para APIs financeiras: uma proposta de empresa júnior para formação técnica em Open Finance.
-
-**Pergunta de pesquisa sugerida:** Como uma empresa júnior pode usar um sandbox open source de APIs financeiras para promover aprendizagem prática, inclusão técnica e aproximação entre estudantes, comunidades de tecnologia e o ecossistema financeiro regulado?
 
 ---
 
