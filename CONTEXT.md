@@ -4,6 +4,10 @@ Jataí is an educational developer platform for learning and prototyping Open Fi
 
 ## Language
 
+**Jataí**:
+The product and brand name, always written in title case with the accented final í.
+_Avoid_: JATAÍ, Jatai, jataí
+
 **Jataí SDK**:
 The single educational SDK through which learners and developers access Jataí's simulated Open Finance capabilities.
 _Avoid_: Product suite, collection of separate tools
