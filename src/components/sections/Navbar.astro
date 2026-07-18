@@ -1,21 +1,25 @@
----
-import PixelWordmark from "@/components/brand/PixelWordmark.astro";
----
-
-<header class="site-header">
-  <a class="brand-link" href="#top" aria-label="Jataí, voltar ao início">
-    <span class="brand-mark" aria-hidden="true">✦</span>
-    <PixelWordmark />
-  </a>
-
-  <nav class="site-nav" aria-label="Navegação principal">
-    <a href="#sdk">O SDK</a>
-    <a href="#primeiro-voo">Primeiro voo</a>
-    <a href="#aprender">Aprender</a>
+<header class="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+  <nav
+    class="flex items-center gap-1 rounded-full border border-ink/10 bg-white/75 p-1.5 shadow-sm backdrop-blur-md"
+    aria-label="Navegação principal"
+  >
+    <a
+      class="rounded-full px-3 py-2 text-xs font-medium text-ink/60 transition-colors hover:bg-white hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-dark sm:px-4 sm:text-sm"
+      href="#inicio"
+    >Início</a>
+    <a
+      class="rounded-full px-3 py-2 text-xs font-medium text-ink/60 transition-colors hover:bg-white hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-dark sm:px-4 sm:text-sm"
+      href="#playground"
+    >Playground</a>
+    <a
+      class="rounded-full px-3 py-2 text-xs font-medium text-ink/60 transition-colors hover:bg-white hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-dark sm:px-4 sm:text-sm"
+      href="#sdk"
+    >SDK</a>
+    <a
+      class="rounded-full px-3 py-2 text-xs font-medium text-ink/60 transition-colors hover:bg-white hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-honey-dark sm:px-4 sm:text-sm"
+      href="https://github.com/ttusk/jatai"
+      target="_blank"
+      rel="noreferrer"
+    >GitHub</a>
   </nav>
-
-  <a class="button button--small button--primary header-cta" href="#primeiro-voo">
-    Começar
-    <span aria-hidden="true">→</span>
-  </a>
 </header>

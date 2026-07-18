@@ -7,25 +7,48 @@ async function getBuiltPage() {
 }
 
 describe("Jataí landing page", () => {
-  it("states the fictional educational promise in Portuguese", async () => {
+  it("uses the agreed concise Portuguese product copy", async () => {
     const page = await getBuiltPage();
 
     expect(page.documentElement.lang).toBe("pt-BR");
-    expect(page.querySelector("h1")?.textContent?.replace(/\s/g, "")).toBe("JATAÍ");
-    expect(page.body.textContent).toContain("Aprenda Open Finance sem mover dinheiro de verdade.");
-    expect(page.body.textContent).toContain("Projeto acadêmico");
-    expect(page.body.textContent).toContain("ambiente 100% simulado");
+    expect(page.querySelector("h1")?.textContent?.trim()).toBe("Jataí");
+    expect(page.body.textContent).toContain("Open Finance, sem dados reais.");
+    expect(page.body.textContent).toContain(
+      "SDK educacional para testar consentimento, contas e Pix.",
+    );
+    expect(page.body.textContent).toContain("Veja o SDK em uso.");
+    expect(page.body.textContent).toContain("Cinco módulos, um pacote.");
   });
 
-  it("ships one focused journey and no theme control", async () => {
+  it("ships the focused four-section light experience", async () => {
     const page = await getBuiltPage();
 
+    expect(page.querySelector("#inicio")).not.toBeNull();
+    expect(page.querySelector("#playground")).not.toBeNull();
     expect(page.querySelector("#sdk")).not.toBeNull();
-    expect(page.querySelector("#primeiro-voo")).not.toBeNull();
-    expect(page.querySelector("#aprender")).not.toBeNull();
-    const firstFlightLinks = Array.from(page.querySelectorAll('a[href="#primeiro-voo"]'));
-    expect(firstFlightLinks.some((link) => /Começar primeiro voo/.test(link.textContent ?? ""))).toBe(true);
+    expect(page.querySelector("footer")).not.toBeNull();
+    expect(page.querySelector("#aprender")).toBeNull();
+    expect(page.querySelector("#primeiro-voo")).toBeNull();
+    const playgroundLinks = Array.from(page.querySelectorAll('a[href="#playground"]'));
+    expect(playgroundLinks.some((link) => link.textContent?.includes("Abrir playground"))).toBe(true);
     expect(page.querySelector('[aria-label="Toggle theme"]')).toBeNull();
-    expect(page.body.textContent).not.toContain("What is Jataí");
+    expect(page.body.textContent).not.toContain("15 min");
+    expect(page.body.textContent).not.toContain("6 etapas");
+  });
+
+  it("keeps navigation, SDK examples, and academic disclosure concrete", async () => {
+    const page = await getBuiltPage();
+
+    const navigation = page.querySelector('nav[aria-label="Navegação principal"]');
+    expect(navigation?.textContent).toContain("Início");
+    expect(navigation?.textContent).toContain("Playground");
+    expect(navigation?.textContent).toContain("SDK");
+    expect(navigation?.textContent).toContain("GitHub");
+    expect(page.body.textContent).toContain("accounts.list()");
+    expect(page.body.textContent).toContain("payments.createPix()");
+    expect(page.body.textContent).toContain(
+      "Projeto acadêmico inspirado no Open Finance Brasil. Sem vínculo oficial.",
+    );
+    expect(page.querySelector('img[alt="Open Finance Brasil"]')).not.toBeNull();
   });
 });

@@ -1,63 +1,44 @@
 ---
-import { MelBee } from "@/components/brand/MelBee";
-import PixelWordmark from "@/components/brand/PixelWordmark.astro";
+import { AnimatedTitle } from "@/components/brand/AnimatedTitle";
 ---
 
-<section class="hero" id="top">
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__copy">
-    <p class="academic-label">
-      <span aria-hidden="true"></span>
-      Projeto acadêmico · ambiente 100% simulado
+<section
+  id="inicio"
+  class="mx-auto grid min-h-[92vh] w-full max-w-7xl items-center gap-16 px-6 pb-24 pt-36 lg:grid-cols-[0.88fr_1.12fr] lg:px-10 lg:pb-28 lg:pt-40"
+>
+  <div>
+    <p class="mb-8 font-mono text-[0.68rem] font-medium uppercase tracking-[0.18em] text-ink/45 sm:text-xs">
+      Projeto acadêmico · ambiente simulado
     </p>
-
-    <PixelWordmark as="h1" animated />
-
-    <h2>Aprenda Open Finance sem mover dinheiro de verdade.</h2>
-    <p class="hero__lead">
-      Um SDK educacional e um sandbox simulado para você construir seu primeiro fluxo Pix,
-      com a Mel ao seu lado.
+    <AnimatedTitle client:load />
+    <h2 class="mt-10 max-w-xl text-3xl font-medium leading-[1.08] tracking-[-0.04em] text-ink sm:text-4xl lg:text-5xl">
+      Open Finance, sem dados reais.
+    </h2>
+    <p class="mt-6 max-w-lg text-base leading-7 text-ink/60 sm:text-lg">
+      SDK educacional para testar consentimento, contas e Pix.
     </p>
-
-    <div class="hero__actions">
-      <a class="button button--primary" href="#primeiro-voo">
-        Começar primeiro voo <span aria-hidden="true">→</span>
-      </a>
-      <a class="button button--ghost" href="#sdk">Conhecer o SDK</a>
-    </div>
-
-    <ul class="hero__facts" aria-label="Resumo da experiência">
-      <li><strong>15 min</strong><span>para completar</span></li>
-      <li><strong>6 etapas</strong><span>guiadas pela Mel</span></li>
-      <li><strong>0 reais</strong><span>movimentados</span></li>
-    </ul>
+    <a
+      class="mt-9 inline-flex items-center gap-3 rounded-full bg-honey px-5 py-3 text-sm font-semibold text-ink transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark motion-reduce:transform-none"
+      href="#playground"
+    >
+      Abrir playground
+      <span aria-hidden="true">↓</span>
+    </a>
   </div>
 
-  <div class="hero__preview" aria-label="Prévia do SDK Jataí">
-    <div class="hero__flight-line" aria-hidden="true"></div>
-    <div class="hero__mel">
-      <MelBee size="lg" />
-      <div class="speech-chip">
-        <strong>Oi, eu sou a Mel.</strong>
-        <span>Eu explico o porquê de cada etapa.</span>
-      </div>
+  <div class="overflow-hidden rounded-2xl bg-ink text-white" aria-label="Prévia do SDK Jataí">
+    <div class="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-xs text-white/50 sm:px-6">
+      <span>quickstart.ts</span>
+      <span class="text-honey">simulado</span>
     </div>
+    <pre class="overflow-x-auto px-5 py-8 font-mono text-[0.76rem] leading-7 sm:px-8 sm:py-10 sm:text-sm"><code><span class="text-white/45">import</span> {`{ jatai }`} <span class="text-white/45">from</span> <span class="text-honey">'@jatai/sdk'</span>
 
-    <div class="hero-terminal">
-      <div class="hero-terminal__bar">
-        <span>primeiro-voo.ts</span>
-        <span>simulado</span>
-      </div>
-      <pre><code><span class="code-muted">import</span> {`{ jatai }`} <span class="code-muted">from</span> <span class="code-string">'@jatai/sdk'</span>
+<span class="text-white/45">const</span> consent = <span class="text-white/45">await</span> jatai.auth
+  .createConsent({`{ scopes: ['ACCOUNTS', 'PIX'] }`})
 
-<span class="code-muted">const</span> voo = <span class="code-muted">await</span> jatai
-  .payments
-  .createPix({`{`}
-    amount: <span class="code-number">18.90</span>,
-    simulated: <span class="code-boolean">true</span>
-  {`}`})
+<span class="text-white/45">const</span> accounts = <span class="text-white/45">await</span> jatai.accounts
+  .list({`{ consentId: consent.id }`})
 
-<span class="code-comment">// nenhum dinheiro saiu do lugar ✓</span></code></pre>
-    </div>
+<span class="text-white/55">🐝 Mel: use dados sintéticos enquanto aprende.</span></code></pre>
   </div>
 </section>

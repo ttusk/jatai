@@ -1,82 +1,40 @@
 ---
 const modules = [
-  {
-    namespace: "accounts",
-    title: "Contas sintéticas",
-    description: "Saldos, extratos e transações inventadas com estrutura realista.",
-    code: "await jatai.accounts.list({ consentId })",
-  },
-  {
-    namespace: "auth",
-    title: "Consentimento e acesso",
-    description: "Aprenda OAuth2, OpenID Connect, escopos e expiração sem credenciais bancárias.",
-    code: "await jatai.auth.createConsent({ scopes })",
-  },
-  {
-    namespace: "payments",
-    title: "Pix simulado",
-    description: "Inicie pagamentos fictícios e acompanhe cada mudança de estado.",
-    code: "await jatai.payments.createPix({ amount })",
-  },
-  {
-    namespace: "telemetry",
-    title: "Erros que ensinam",
-    description: "Observe latência, callbacks duplicados e falhas controladas.",
-    code: "jatai.telemetry.inject({ latency: 1200 })",
-  },
-  {
-    namespace: "data",
-    title: "Dados para experimentar",
-    description: "Gere conjuntos financeiros sintéticos sem expor pessoas reais.",
-    code: "await jatai.data.generate({ rows: 50 })",
-  },
+  ["jatai.accounts", "Contas e saldos simulados", "accounts.list()"],
+  ["jatai.auth", "Consentimento e tokens", "auth.createConsent()"],
+  ["jatai.payments", "Pix e callbacks", "payments.createPix()"],
+  ["jatai.telemetry", "Latência e erros", "telemetry.inject()"],
+  ["jatai.data", "Dados sintéticos", "data.generate()"],
 ];
 ---
 
-<section class="section sdk-section" id="sdk">
-  <div class="section-heading">
-    <p class="eyebrow">Um pacote, cinco módulos</p>
-    <h2>Aprenda o fluxo inteiro antes de separar as peças.</h2>
-    <p>
-      O SDK organiza cada fronteira do Open Finance em um namespace previsível. Você explora
-      conceitos diferentes sem trocar de ambiente.
-    </p>
-  </div>
+<section id="sdk" class="scroll-mt-24 border-t border-line py-24 sm:py-32">
+  <div class="mx-auto w-full max-w-6xl px-6 lg:px-10">
+    <p class="font-mono text-xs uppercase tracking-[0.18em] text-ink/40">API</p>
+    <h2 class="mt-4 text-3xl font-medium tracking-[-0.04em] text-ink sm:text-5xl">
+      Cinco módulos, um pacote.
+    </h2>
 
-  <div class="package-explorer">
-    <aside class="package-tree" aria-label="Árvore do pacote Jataí">
-      <p><span aria-hidden="true">◆</span> @jatai/sdk</p>
-      <ul>
-        {modules.map((item, index) => (
-          <li>
-            <span aria-hidden="true">{index === modules.length - 1 ? "└" : "├"}──</span>
-            {item.namespace}
-          </li>
-        ))}
-      </ul>
-      <div class="package-tree__note">
-        <span>100%</span>
-        <p>local, sintético<br />e fictício</p>
-      </div>
-    </aside>
-
-    <div class="module-list">
-      {modules.map((item, index) => (
-        <details open={index === 0}>
-          <summary>
-            <span class="module-list__index">{String(index + 1).padStart(2, "0")}</span>
-            <span>
-              <code>jatai.{item.namespace}</code>
-              <strong>{item.title}</strong>
-            </span>
-            <span class="module-list__toggle" aria-hidden="true">+</span>
-          </summary>
-          <div class="module-list__content">
-            <p>{item.description}</p>
-            <code>{item.code}</code>
-          </div>
-        </details>
+    <div class="mt-14 border-t border-line">
+      {modules.map(([namespace, purpose, example]) => (
+        <div
+          tabindex="0"
+          class="group grid gap-2 border-b border-line py-6 outline-none transition-colors hover:bg-honey/10 focus-visible:bg-honey/10 sm:grid-cols-[1fr_1.25fr_1fr] sm:items-center sm:gap-8"
+        >
+          <code class="font-mono text-sm font-medium text-ink">{namespace}</code>
+          <p class="text-sm text-ink/55">{purpose}</p>
+          <code class="font-mono text-xs text-ink/40 transition-colors group-hover:text-ink group-focus-visible:text-ink sm:text-right">
+            {example}
+          </code>
+        </div>
       ))}
     </div>
+
+    <a
+      class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ink underline decoration-honey-dark decoration-2 underline-offset-4 transition-colors hover:text-honey-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark"
+      href="#playground"
+    >
+      Executar exemplo <span aria-hidden="true">↑</span>
+    </a>
   </div>
 </section>
