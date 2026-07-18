@@ -16,9 +16,16 @@ function TerminalFrame({ step, animated = false }: { step: ShowcaseStep; animate
           <span className="select-none text-honey">$</span>
           <code
             data-command={animated ? "" : undefined}
+            aria-label={animated ? step.command : undefined}
             className="block max-w-full overflow-hidden whitespace-pre-wrap break-words"
           >
-            {step.command}
+            {animated
+              ? Array.from(step.command).map((character, index) => (
+                  <span key={`${character}-${index}`} data-command-char aria-hidden="true">
+                    {character}
+                  </span>
+                ))
+              : step.command}
           </code>
         </div>
 
@@ -54,6 +61,7 @@ export function ProductShowcase() {
 
     if (!container || !flow || !terminalElement || typeof window.matchMedia !== "function") return;
 
+    let cancelled = false;
     let cleanup = () => undefined;
 
     async function setupScroll() {
@@ -61,6 +69,8 @@ export function ProductShowcase() {
         import("gsap"),
         import("gsap/ScrollTrigger"),
       ]);
+
+      if (cancelled) return;
 
       gsap.registerPlugin(ScrollTrigger);
       const media = gsap.matchMedia();
@@ -94,7 +104,10 @@ export function ProductShowcase() {
     }
 
     void setupScroll();
-    return () => cleanup();
+    return () => {
+      cancelled = true;
+      cleanup();
+    };
   }, []);
 
   useEffect(() => {
@@ -113,16 +126,16 @@ export function ProductShowcase() {
       if (cancelled || !terminalElement) return;
 
       const context = gsap.context(() => {
-        const command = terminalElement.querySelector("[data-command]");
+        const commandCharacters = terminalElement.querySelectorAll("[data-command-char]");
         const output = terminalElement.querySelectorAll("[data-output] > *");
         const mel = terminalElement.querySelector("[data-mel]");
         const timeline = gsap.timeline();
 
-        if (command) {
+        if (commandCharacters.length > 0) {
           timeline.fromTo(
-            command,
-            { opacity: 0, x: -8 },
-            { opacity: 1, x: 0, duration: 0.28, ease: "power2.out" },
+            commandCharacters,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.01, stagger: 0.014, ease: "none" },
           );
         }
 

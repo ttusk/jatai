@@ -4,12 +4,15 @@ import { ProductShowcase } from "./ProductShowcase";
 
 describe("ProductShowcase", () => {
   it("renders the whole scripted flow for scrolling and assistive technology", () => {
-    render(<ProductShowcase />);
+    const { container } = render(<ProductShowcase />);
 
     expect(screen.getAllByText("Etapa 1 de 6").length).toBeGreaterThan(0);
     expect(screen.getAllByRole("article")).toHaveLength(6);
     expect(screen.getAllByText("npm install @jatai/sdk").length).toBeGreaterThan(0);
     expect(screen.getAllByText(/paymentId: 'pix_demo'/).length).toBeGreaterThan(0);
+    expect(container.querySelectorAll("[data-command-char]")).toHaveLength(
+      "npm install @jatai/sdk".length,
+    );
   });
 
   it("shows Mel only at the consent, pending Pix, and callback steps", () => {
