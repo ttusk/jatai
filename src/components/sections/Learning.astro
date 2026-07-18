@@ -1,0 +1,42 @@
+---
+import { MelBee } from "@/components/brand/MelBee";
+
+const moments = [
+  ["Explica", "Traduz consentimento, escopos e callbacks para linguagem direta."],
+  ["Dá pistas", "Libera perguntas contextuais depois que você tenta executar a etapa."],
+  ["Ajuda a recuperar", "Mostra o conceito por trás de um erro sem escrever a solução por você."],
+];
+---
+
+<section class="section learning-section" id="aprender">
+  <div class="learning-section__mel">
+    <div class="learning-section__orbit" aria-hidden="true"></div>
+    <MelBee size="lg" state="explaining" />
+    <p class="eyebrow">Mel · companheira de aprendizagem</p>
+    <h2>Uma IA fictícia com uma responsabilidade real: ajudar você a entender.</h2>
+    <p>
+      Nesta demonstração, a Mel usa respostas roteirizadas e perguntas sugeridas. Ela não é um
+      chatbot geral e não termina o exercício pelo estudante.
+    </p>
+  </div>
+
+  <div class="learning-moments">
+    {moments.map(([title, description], index) => (
+      <article>
+        <span>{String(index + 1).padStart(2, "0")}</span>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="academic-cta">
+  <div>
+    <p class="eyebrow">Conceitos reais. Produto fictício.</p>
+    <h2>Pronto para o seu primeiro voo?</h2>
+  </div>
+  <a class="button button--light" href="#primeiro-voo">
+    Começar a experiência <span aria-hidden="true">↑</span>
+  </a>
+</section>

@@ -1,31 +1,16 @@
 ---
+import PixelWordmark from "@/components/brand/PixelWordmark.astro";
 ---
 
-<footer>
-  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
-    <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
-      <div class="flex flex-col items-center gap-3 md:flex-row md:gap-4">
-        <span class="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Jataí
-        </span>
-      </div>
-
-      <img
-        src={`${import.meta.env.BASE_URL}logos/marca_open_finance.svg`}
-        alt="Open Finance Brasil"
-        class="h-7 w-auto dark:hidden"
-      />
-      <img
-        src={`${import.meta.env.BASE_URL}logos/marca_positiva_open_finance.svg`}
-        alt="Open Finance Brasil"
-        class="hidden h-7 w-auto dark:block"
-      />
-
-      <nav class="flex gap-6 text-sm text-muted-foreground">
-        <a href="#" class="hover:text-foreground">Privacidade</a>
-        <a href="#" class="hover:text-foreground">Termos</a>
-        <a href="#" class="hover:text-foreground">Contato</a>
-      </nav>
-    </div>
+<footer class="site-footer">
+  <div class="site-footer__brand">
+    <PixelWordmark />
+    <p>SDK educacional fictício para aprender Open Finance.</p>
   </div>
+
+  <p class="site-footer__disclosure">
+    Projeto acadêmico · ambiente 100% simulado · nenhum serviço financeiro é oferecido.
+  </p>
+
+  <p class="site-footer__year">© {new Date().getFullYear()} Jataí</p>
 </footer>

@@ -1,0 +1,63 @@
+---
+import { MelBee } from "@/components/brand/MelBee";
+import PixelWordmark from "@/components/brand/PixelWordmark.astro";
+---
+
+<section class="hero" id="top">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__copy">
+    <p class="academic-label">
+      <span aria-hidden="true"></span>
+      Projeto acadêmico · ambiente 100% simulado
+    </p>
+
+    <PixelWordmark as="h1" animated />
+
+    <h2>Aprenda Open Finance sem mover dinheiro de verdade.</h2>
+    <p class="hero__lead">
+      Um SDK educacional e um sandbox simulado para você construir seu primeiro fluxo Pix,
+      com a Mel ao seu lado.
+    </p>
+
+    <div class="hero__actions">
+      <a class="button button--primary" href="#primeiro-voo">
+        Começar primeiro voo <span aria-hidden="true">→</span>
+      </a>
+      <a class="button button--ghost" href="#sdk">Conhecer o SDK</a>
+    </div>
+
+    <ul class="hero__facts" aria-label="Resumo da experiência">
+      <li><strong>15 min</strong><span>para completar</span></li>
+      <li><strong>6 etapas</strong><span>guiadas pela Mel</span></li>
+      <li><strong>0 reais</strong><span>movimentados</span></li>
+    </ul>
+  </div>
+
+  <div class="hero__preview" aria-label="Prévia do SDK Jataí">
+    <div class="hero__flight-line" aria-hidden="true"></div>
+    <div class="hero__mel">
+      <MelBee size="lg" />
+      <div class="speech-chip">
+        <strong>Oi, eu sou a Mel.</strong>
+        <span>Eu explico o porquê de cada etapa.</span>
+      </div>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="hero-terminal__bar">
+        <span>primeiro-voo.ts</span>
+        <span>simulado</span>
+      </div>
+      <pre><code><span class="code-muted">import</span> {`{ jatai }`} <span class="code-muted">from</span> <span class="code-string">'@jatai/sdk'</span>
+
+<span class="code-muted">const</span> voo = <span class="code-muted">await</span> jatai
+  .payments
+  .createPix({`{`}
+    amount: <span class="code-number">18.90</span>,
+    simulated: <span class="code-boolean">true</span>
+  {`}`})
+
+<span class="code-comment">// nenhum dinheiro saiu do lugar ✓</span></code></pre>
+    </div>
+  </div>
+</section>

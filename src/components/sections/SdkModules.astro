@@ -1,0 +1,82 @@
+---
+const modules = [
+  {
+    namespace: "accounts",
+    title: "Contas sintéticas",
+    description: "Saldos, extratos e transações inventadas com estrutura realista.",
+    code: "await jatai.accounts.list({ consentId })",
+  },
+  {
+    namespace: "auth",
+    title: "Consentimento e acesso",
+    description: "Aprenda OAuth2, OpenID Connect, escopos e expiração sem credenciais bancárias.",
+    code: "await jatai.auth.createConsent({ scopes })",
+  },
+  {
+    namespace: "payments",
+    title: "Pix simulado",
+    description: "Inicie pagamentos fictícios e acompanhe cada mudança de estado.",
+    code: "await jatai.payments.createPix({ amount })",
+  },
+  {
+    namespace: "telemetry",
+    title: "Erros que ensinam",
+    description: "Observe latência, callbacks duplicados e falhas controladas.",
+    code: "jatai.telemetry.inject({ latency: 1200 })",
+  },
+  {
+    namespace: "data",
+    title: "Dados para experimentar",
+    description: "Gere conjuntos financeiros sintéticos sem expor pessoas reais.",
+    code: "await jatai.data.generate({ rows: 50 })",
+  },
+];
+---
+
+<section class="section sdk-section" id="sdk">
+  <div class="section-heading">
+    <p class="eyebrow">Um pacote, cinco módulos</p>
+    <h2>Aprenda o fluxo inteiro antes de separar as peças.</h2>
+    <p>
+      O SDK organiza cada fronteira do Open Finance em um namespace previsível. Você explora
+      conceitos diferentes sem trocar de ambiente.
+    </p>
+  </div>
+
+  <div class="package-explorer">
+    <aside class="package-tree" aria-label="Árvore do pacote Jataí">
+      <p><span aria-hidden="true">◆</span> @jatai/sdk</p>
+      <ul>
+        {modules.map((item, index) => (
+          <li>
+            <span aria-hidden="true">{index === modules.length - 1 ? "└" : "├"}──</span>
+            {item.namespace}
+          </li>
+        ))}
+      </ul>
+      <div class="package-tree__note">
+        <span>100%</span>
+        <p>local, sintético<br />e fictício</p>
+      </div>
+    </aside>
+
+    <div class="module-list">
+      {modules.map((item, index) => (
+        <details open={index === 0}>
+          <summary>
+            <span class="module-list__index">{String(index + 1).padStart(2, "0")}</span>
+            <span>
+              <code>jatai.{item.namespace}</code>
+              <strong>{item.title}</strong>
+            </span>
+            <span class="module-list__toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="module-list__content">
+            <p>{item.description}</p>
+            <code>{item.code}</code>
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

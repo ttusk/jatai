@@ -1,16 +1,32 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Navbar } from "@/components/sections/Navbar";
-import { Hero } from "@/components/sections/Hero";
-import { CodeShowcase } from "@/components/sections/CodeShowcase";
+import Navbar from "@/components/sections/Navbar.astro";
+import Hero from "@/components/sections/Hero.astro";
+import SdkModules from "@/components/sections/SdkModules.astro";
+import Learning from "@/components/sections/Learning.astro";
+import { FirstFlight } from "@/components/first-flight/FirstFlight";
 import Footer from "@/components/sections/Footer.astro";
 ---
 
 <Layout>
-  <Navbar client:load />
-  <main>
+  <Navbar />
+  <main id="conteudo">
     <Hero />
-    <CodeShowcase client:only="react" />
+    <SdkModules />
+
+    <section class="section first-flight-section" id="primeiro-voo">
+      <div class="section-heading section-heading--wide">
+        <p class="eyebrow">Primeiro voo · 15 minutos</p>
+        <h2>Do consentimento ao callback, sem sair do navegador.</h2>
+        <p>
+          Execute cada etapa do roteiro fictício. A resposta aparece na hora e a Mel libera uma
+          pergunta para explicar o conceito por trás do código.
+        </p>
+      </div>
+      <FirstFlight client:visible />
+    </section>
+
+    <Learning />
   </main>
   <Footer />
 </Layout>
