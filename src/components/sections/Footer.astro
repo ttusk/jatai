@@ -2,31 +2,31 @@
 const base = import.meta.env.BASE_URL;
 ---
 
-<footer class="border-t border-line py-14 sm:py-20">
+<footer class="border-t border-line py-10 sm:py-12">
   <div
-    class="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-x-8 gap-y-14 px-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-x-12 lg:px-10"
+    class="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-x-8 gap-y-10 px-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-x-10 lg:px-10"
   >
     <a
       href={base}
-      class="font-pixel-square text-3xl tracking-[-0.05em] text-ink transition-colors hover:text-honey-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark sm:text-4xl"
+      class="font-pixel-square text-2xl tracking-[-0.05em] text-ink transition-colors hover:text-honey-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark sm:text-3xl"
     >
       Jataí
     </a>
 
-    <div class="col-span-2 row-start-2 flex max-w-sm flex-col items-center justify-self-center text-center sm:col-span-1 sm:col-start-2 sm:row-start-1">
+    <div class="col-span-2 row-start-2 flex max-w-64 flex-col items-center justify-self-center text-center sm:col-span-1 sm:col-start-2 sm:row-start-1">
       <img
         src={`${base}logos/marca_open_finance.svg`}
         alt="Open Finance Brasil"
-        class="h-12 w-auto object-contain sm:h-14"
+        class="h-9 w-auto object-contain sm:h-10"
       />
-      <p class="mt-5 text-sm leading-6 text-ink/50">
+      <p class="mt-3 text-xs leading-5 text-ink/45">
         Projeto acadêmico inspirado no Open Finance Brasil. Sem vínculo oficial.
       </p>
     </div>
 
     <nav
       aria-label="Links do rodapé"
-      class="col-start-2 row-start-1 flex flex-col items-end gap-3 text-right text-sm sm:col-start-3"
+      class="col-start-2 row-start-1 flex flex-col items-end gap-2 text-right text-xs sm:col-start-3"
     >
       <a
         href="https://github.com/ttusk/jatai"

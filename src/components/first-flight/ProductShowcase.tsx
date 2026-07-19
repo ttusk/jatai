@@ -14,8 +14,9 @@ function TerminalFrame({ step }: { step: ShowcaseStep }) {
         <div className="flex gap-3 text-ink/90">
           <span className="select-none text-honey-dark">$</span>
           <code
+            data-terminal-command
             aria-label={step.command}
-            className="block max-w-full overflow-hidden whitespace-pre-wrap break-words"
+            className="min-w-0 flex-1 whitespace-pre-wrap [overflow-wrap:anywhere]"
           >
             {Array.from(step.command).map((character, index) => (
               <span key={`${character}-${index}`} data-terminal-char aria-hidden="true">

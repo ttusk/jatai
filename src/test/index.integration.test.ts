@@ -54,6 +54,8 @@ describe("Jataí landing page", () => {
     expect(navigation?.textContent).not.toContain("GitHub");
     expect(page.body.textContent).toContain("accounts.list()");
     expect(page.body.textContent).toContain("payments.createPix()");
+    expect(page.body.textContent).not.toContain("Rever no playground");
+    expect(page.querySelector("#sdk [role=tooltip]")).toBeNull();
     expect(page.body.textContent).toContain(
       "Projeto acadêmico inspirado no Open Finance Brasil. Sem vínculo oficial.",
     );
@@ -61,6 +63,7 @@ describe("Jataí landing page", () => {
     expect(page.querySelector('footer a[href="https://github.com/ttusk/jatai"]')).not.toBeNull();
     expect(page.querySelector('footer a[href$="privacidade/"]')).not.toBeNull();
     expect(page.querySelector('footer a[href$="termos/"]')).not.toBeNull();
+    expect(page.querySelector("footer")?.className).toContain("py-10");
   });
 
   it("publishes honest privacy and terms pages for the fictional project", async () => {

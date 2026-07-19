@@ -15,6 +15,12 @@ describe("ProductShowcase", () => {
     expect(container.querySelectorAll("[data-mobile-step]")).toHaveLength(6);
     expect(container.querySelectorAll("[data-terminal-sequence]")).toHaveLength(12);
     expect(container.querySelectorAll("[data-terminal-execution]")).toHaveLength(12);
+    const terminalCommands = container.querySelectorAll("[data-terminal-command]");
+    expect(terminalCommands).toHaveLength(12);
+    terminalCommands.forEach((command) => {
+      expect(command).toHaveClass("min-w-0", "flex-1", "[overflow-wrap:anywhere]");
+      expect(command).not.toHaveClass("overflow-hidden");
+    });
     expect(screen.queryByText("playground.ts")).not.toBeInTheDocument();
     expect(screen.queryByText("simulado")).not.toBeInTheDocument();
     expect(container.querySelectorAll("[data-terminal-char]").length).toBeGreaterThan(

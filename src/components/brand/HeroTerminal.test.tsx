@@ -9,6 +9,12 @@ describe("HeroTerminal", () => {
     expect(screen.getByLabelText("Prévia do SDK Jataí")).toBeInTheDocument();
     expect(container.querySelector("[data-hero-terminal]")).not.toBeNull();
     expect(container.querySelectorAll("[data-terminal-execution]")).toHaveLength(1);
+    expect(container.querySelector("[data-terminal-execution]")).not.toHaveClass("overflow-x-auto");
+    const commands = container.querySelectorAll("[data-terminal-command]");
+    expect(commands).toHaveLength(3);
+    commands.forEach((command) => {
+      expect(command).toHaveClass("min-w-0", "flex-1", "[overflow-wrap:anywhere]");
+    });
     expect(container.querySelector("[data-terminal-sequence]")).toBeNull();
     expect(container.querySelector("[data-terminal-char]")).toBeNull();
     expect(container.querySelector("[data-terminal-output]")).toBeNull();

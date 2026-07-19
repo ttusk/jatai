@@ -15,7 +15,7 @@ export function HeroTerminal() {
     >
       <div
         data-terminal-execution
-        className="min-h-[23rem] overflow-x-auto px-5 py-8 font-mono text-sm leading-7 sm:px-8 sm:py-10 sm:text-[0.95rem] sm:leading-8"
+        className="min-h-[23rem] overflow-hidden px-5 py-8 font-mono text-xs leading-7 sm:px-8 sm:py-10 sm:text-sm sm:leading-8 lg:text-[0.95rem]"
       >
         <div className="space-y-4 text-ink/90">
           {commands.map((command, commandIndex) => (
@@ -23,7 +23,11 @@ export function HeroTerminal() {
               <span className="select-none text-honey-dark">
                 {commandIndex === 0 ? "$" : "›"}
               </span>
-              <code aria-label={command} className="whitespace-pre-wrap break-words">
+              <code
+                data-terminal-command
+                aria-label={command}
+                className="min-w-0 flex-1 whitespace-pre-wrap [overflow-wrap:anywhere]"
+              >
                 {command}
               </code>
             </div>
