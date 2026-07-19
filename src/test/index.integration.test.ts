@@ -6,6 +6,11 @@ async function getBuiltPage() {
   return new DOMParser().parseFromString(html, "text/html");
 }
 
+async function getBuiltRoute(route: string) {
+  const html = await readFile(`dist/${route}/index.html`, "utf8");
+  return new DOMParser().parseFromString(html, "text/html");
+}
+
 describe("Jataí landing page", () => {
   it("uses the agreed concise Portuguese product copy", async () => {
     const page = await getBuiltPage();
@@ -17,7 +22,10 @@ describe("Jataí landing page", () => {
       "SDK educacional para testar consentimento, contas e Pix.",
     );
     expect(page.body.textContent).toContain("Veja o SDK em uso.");
-    expect(page.body.textContent).toContain("Cinco módulos, um pacote.");
+    expect(page.body.textContent).toContain("O SDK, módulo por módulo.");
+    expect(page.body.textContent).toContain(
+      "Consentimento, contas, Pix e ferramentas para controlar o sandbox.",
+    );
   });
 
   it("ships the focused four-section light experience", async () => {
@@ -43,12 +51,27 @@ describe("Jataí landing page", () => {
     expect(navigation?.textContent).toContain("Início");
     expect(navigation?.textContent).toContain("Playground");
     expect(navigation?.textContent).toContain("SDK");
-    expect(navigation?.textContent).toContain("GitHub");
+    expect(navigation?.textContent).not.toContain("GitHub");
     expect(page.body.textContent).toContain("accounts.list()");
     expect(page.body.textContent).toContain("payments.createPix()");
     expect(page.body.textContent).toContain(
       "Projeto acadêmico inspirado no Open Finance Brasil. Sem vínculo oficial.",
     );
     expect(page.querySelector('img[alt="Open Finance Brasil"]')).not.toBeNull();
+    expect(page.querySelector('footer a[href="https://github.com/ttusk/jatai"]')).not.toBeNull();
+    expect(page.querySelector('footer a[href$="privacidade/"]')).not.toBeNull();
+    expect(page.querySelector('footer a[href$="termos/"]')).not.toBeNull();
+  });
+
+  it("publishes honest privacy and terms pages for the fictional project", async () => {
+    const [privacy, terms] = await Promise.all([
+      getBuiltRoute("privacidade"),
+      getBuiltRoute("termos"),
+    ]);
+
+    expect(privacy.querySelector("h1")?.textContent).toContain("Privacidade");
+    expect(privacy.body.textContent).toContain("dados sintéticos");
+    expect(terms.querySelector("h1")?.textContent).toContain("Termos");
+    expect(terms.body.textContent).toContain("projeto acadêmico fictício");
   });
 });

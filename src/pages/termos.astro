@@ -1,0 +1,53 @@
+---
+import Footer from "@/components/sections/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Termos — Jataí"
+  description="Escopo e limites da demonstração acadêmica fictícia Jataí."
+>
+  <main id="conteudo" class="min-h-[70vh] py-20 sm:py-28">
+    <article class="mx-auto w-full max-w-3xl px-6 lg:px-10">
+      <a
+        href={base}
+        class="font-mono text-xs text-ink/45 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark"
+      >← Voltar para Jataí</a>
+      <p class="mt-16 font-mono text-xs uppercase tracking-[0.18em] text-ink/40">
+        Projeto acadêmico
+      </p>
+      <h1 class="mt-4 text-4xl font-medium tracking-[-0.04em] text-ink sm:text-6xl">Termos</h1>
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-ink/60">
+        Jataí é um projeto acadêmico fictício criado para demonstrar como uma experiência de
+        aprendizagem em Open Finance poderia funcionar.
+      </p>
+
+      <div class="mt-16 space-y-12 border-t border-line pt-10">
+        <section>
+          <h2 class="text-lg font-medium text-ink">Sem serviço financeiro</h2>
+          <p class="mt-3 leading-7 text-ink/55">
+            O site não oferece conta, pagamento, crédito, iniciação de Pix ou acesso a dados
+            bancários. As chamadas e respostas do SDK são exemplos simulados.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-lg font-medium text-ink">Uso educacional</h2>
+          <p class="mt-3 leading-7 text-ink/55">
+            O conteúdo serve para estudo e prototipação. Ele não substitui documentação oficial,
+            orientação jurídica ou requisitos de uma integração regulada.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-lg font-medium text-ink">Sem vínculo oficial</h2>
+          <p class="mt-3 leading-7 text-ink/55">
+            Jataí não representa o Open Finance Brasil, instituições participantes ou órgãos
+            reguladores.
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>

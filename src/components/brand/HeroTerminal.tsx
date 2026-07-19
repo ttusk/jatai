@@ -10,7 +10,7 @@ export function HeroTerminal() {
   return (
     <div
       data-hero-terminal
-      className="overflow-hidden rounded-2xl border border-ink/10 bg-[#f7f5ef]/80 text-ink backdrop-blur-xl supports-[backdrop-filter]:bg-[#f7f5ef]/70"
+      className="overflow-hidden rounded-2xl border border-white bg-white text-ink"
       aria-label="Prévia do SDK Jataí"
     >
       <div

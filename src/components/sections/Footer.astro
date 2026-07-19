@@ -1,15 +1,47 @@
-<footer class="border-t border-line py-10">
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between lg:px-10">
-    <div class="flex items-center gap-3">
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="border-t border-line py-14 sm:py-20">
+  <div
+    class="mx-auto grid w-full max-w-6xl grid-cols-2 items-start gap-x-8 gap-y-14 px-6 sm:grid-cols-[1fr_auto_1fr] sm:gap-x-12 lg:px-10"
+  >
+    <a
+      href={base}
+      class="font-pixel-square text-3xl tracking-[-0.05em] text-ink transition-colors hover:text-honey-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark sm:text-4xl"
+    >
+      Jataí
+    </a>
+
+    <div class="col-span-2 row-start-2 flex max-w-sm flex-col items-center justify-self-center text-center sm:col-span-1 sm:col-start-2 sm:row-start-1">
       <img
-        src={`${import.meta.env.BASE_URL}logos/simbolo_open_finance.svg`}
+        src={`${base}logos/marca_open_finance.svg`}
         alt="Open Finance Brasil"
-        class="h-7 w-7 object-contain"
+        class="h-12 w-auto object-contain sm:h-14"
       />
-      <p class="max-w-lg text-sm leading-6 text-ink/55">
+      <p class="mt-5 text-sm leading-6 text-ink/50">
         Projeto acadêmico inspirado no Open Finance Brasil. Sem vínculo oficial.
       </p>
     </div>
-    <p class="font-pixel-square text-lg tracking-[-0.04em] text-ink">Jataí</p>
+
+    <nav
+      aria-label="Links do rodapé"
+      class="col-start-2 row-start-1 flex flex-col items-end gap-3 text-right text-sm sm:col-start-3"
+    >
+      <a
+        href="https://github.com/ttusk/jatai"
+        target="_blank"
+        rel="noreferrer"
+        class="text-ink/55 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark"
+      >GitHub</a>
+      <a
+        href={`${base}privacidade/`}
+        class="text-ink/55 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark"
+      >Privacidade</a>
+      <a
+        href={`${base}termos/`}
+        class="text-ink/55 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark"
+      >Termos</a>
+    </nav>
   </div>
 </footer>

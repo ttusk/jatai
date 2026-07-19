@@ -16,6 +16,14 @@ _Avoid_: Product suite, collection of separate tools
 A focused capability accessed through the Jataí SDK, such as accounts, payments, authorization, telemetry, or synthetic data.
 _Avoid_: Standalone product
 
+**Open Finance Module**:
+A Jataí SDK module used in the learner's main integration flow: authorization, accounts, or payments.
+_Avoid_: Production module, standalone API
+
+**Sandbox Support Module**:
+A Jataí SDK module that controls synthetic data or simulated runtime behavior, such as data or telemetry.
+_Avoid_: Open Finance module, standalone tool
+
 **Mel**:
 Jataí's bee mascot and AI learning companion. Mel explains concepts, interprets SDK and sandbox errors, offers contextual hints, and recommends the learner's next step without completing exercises on their behalf.
 _Avoid_: General-purpose chatbot, autonomous coding agent

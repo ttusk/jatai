@@ -5,7 +5,7 @@ import { showcaseSteps } from "./scenario";
 
 function TerminalFrame({ step }: { step: ShowcaseStep }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-ink/10 bg-[#f7f5ef]/80 text-ink backdrop-blur-xl supports-[backdrop-filter]:bg-[#f7f5ef]/70">
+    <div className="overflow-hidden rounded-2xl border border-white bg-white text-ink">
       <div
         data-terminal-sequence
         data-terminal-execution

@@ -1,0 +1,54 @@
+---
+import Footer from "@/components/sections/Footer.astro";
+import Layout from "@/layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Privacidade — Jataí"
+  description="Como a demonstração acadêmica Jataí trata dados e exemplos simulados."
+>
+  <main id="conteudo" class="min-h-[70vh] py-20 sm:py-28">
+    <article class="mx-auto w-full max-w-3xl px-6 lg:px-10">
+      <a
+        href={base}
+        class="font-mono text-xs text-ink/45 transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-honey-dark"
+      >← Voltar para Jataí</a>
+      <p class="mt-16 font-mono text-xs uppercase tracking-[0.18em] text-ink/40">
+        Projeto acadêmico
+      </p>
+      <h1 class="mt-4 text-4xl font-medium tracking-[-0.04em] text-ink sm:text-6xl">
+        Privacidade
+      </h1>
+      <p class="mt-7 max-w-2xl text-lg leading-8 text-ink/60">
+        Jataí é uma demonstração fictícia. Não há cadastro, conexão bancária ou consentimento
+        financeiro real.
+      </p>
+
+      <div class="mt-16 space-y-12 border-t border-line pt-10">
+        <section>
+          <h2 class="text-lg font-medium text-ink">Dados usados nos exemplos</h2>
+          <p class="mt-3 leading-7 text-ink/55">
+            Todos os fluxos do SDK usam dados sintéticos definidos no próprio projeto. Nenhuma
+            conta, chave Pix ou informação de cliente é solicitada.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-lg font-medium text-ink">Armazenamento</h2>
+          <p class="mt-3 leading-7 text-ink/55">
+            A demonstração não possui cadastro nem banco de dados de usuários. O conteúdo exibido
+            pelos terminais é roteirizado localmente.
+          </p>
+        </section>
+        <section>
+          <h2 class="text-lg font-medium text-ink">Links externos</h2>
+          <p class="mt-3 leading-7 text-ink/55">
+            Ao visitar o repositório no GitHub, passam a valer as políticas da própria plataforma.
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
