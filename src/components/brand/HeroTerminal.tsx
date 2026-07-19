@@ -32,13 +32,12 @@ export function HeroTerminal() {
 
       media.add("(prefers-reduced-motion: no-preference)", () => {
         const sequence = terminal.querySelector("[data-terminal-sequence]");
-        const hero = terminal.closest("#inicio") ?? terminal;
         if (!sequence) return;
 
         ScrollTrigger.create({
-          trigger: hero,
-          start: "top top",
-          end: "bottom 45%",
+          trigger: terminal,
+          start: "top 40%",
+          end: "bottom 40%",
           animation: createTerminalTimeline(gsap, sequence),
           scrub: true,
         });
@@ -58,22 +57,20 @@ export function HeroTerminal() {
     <div
       ref={root}
       data-hero-terminal
-      className="overflow-hidden rounded-2xl bg-ink text-white"
+      className="overflow-hidden rounded-2xl border border-ink/10 bg-[#f7f5ef]/80 text-ink backdrop-blur-xl supports-[backdrop-filter]:bg-[#f7f5ef]/70"
       aria-label="Prévia do SDK Jataí"
     >
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-xs text-white/50 sm:px-6">
-        <span>quickstart.ts</span>
-        <span className="text-honey">simulado</span>
-      </div>
-
       <div
         data-terminal-sequence
-        className="min-h-[23rem] overflow-x-auto px-5 py-8 font-mono text-[0.76rem] leading-7 sm:px-8 sm:py-10 sm:text-sm"
+        data-terminal-execution
+        className="min-h-[23rem] overflow-x-auto px-5 py-8 font-mono text-sm leading-7 sm:px-8 sm:py-10 sm:text-[0.95rem] sm:leading-8"
       >
-        <div className="space-y-4 text-white/85">
+        <div className="space-y-4 text-ink/90">
           {commands.map((command, commandIndex) => (
             <div key={command} className="flex gap-3">
-              <span className="select-none text-honey">{commandIndex === 0 ? "$" : "›"}</span>
+              <span className="select-none text-honey-dark">
+                {commandIndex === 0 ? "$" : "›"}
+              </span>
               <code aria-label={command} className="whitespace-pre-wrap break-words">
                 {Array.from(command).map((character, characterIndex) => (
                   <span
@@ -89,7 +86,7 @@ export function HeroTerminal() {
           ))}
         </div>
 
-        <div className="mt-6 space-y-1 text-white/50">
+        <div className="mt-6 space-y-1 text-ink/60">
           {output.map((line) => (
             <p key={line} data-terminal-output>
               {line}
@@ -99,9 +96,10 @@ export function HeroTerminal() {
 
         <p
           data-terminal-mel
-          className="mt-7 max-w-xl border-l-2 border-honey pl-4 text-white/75"
+          className="mt-7 max-w-xl border-l-2 border-honey-dark pl-4 text-ink/70"
         >
-          <span className="text-white">🐝 Mel:</span> estes dados existem só neste exemplo.
+          <span className="font-medium text-ink">🐝 Mel:</span> estes dados existem só neste
+          exemplo.
         </p>
       </div>
     </div>

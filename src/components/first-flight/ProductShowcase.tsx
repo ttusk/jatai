@@ -5,18 +5,14 @@ import { showcaseSteps } from "./scenario";
 
 function TerminalFrame({ step }: { step: ShowcaseStep }) {
   return (
-    <div className="overflow-hidden rounded-2xl bg-ink text-white">
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-xs text-white/55 sm:px-6">
-        <span>playground.ts</span>
-        <span className="text-honey">simulado</span>
-      </div>
-
+    <div className="overflow-hidden rounded-2xl border border-ink/10 bg-[#f7f5ef]/80 text-ink backdrop-blur-xl supports-[backdrop-filter]:bg-[#f7f5ef]/70">
       <div
         data-terminal-sequence
-        className="min-h-72 px-5 py-7 font-mono text-[0.78rem] leading-7 sm:min-h-80 sm:px-8 sm:py-9 sm:text-sm"
+        data-terminal-execution
+        className="min-h-72 px-5 py-7 font-mono text-sm leading-7 sm:min-h-80 sm:px-8 sm:py-9 sm:text-[0.95rem] sm:leading-8"
       >
-        <div className="flex gap-3 text-white/90">
-          <span className="select-none text-honey">$</span>
+        <div className="flex gap-3 text-ink/90">
+          <span className="select-none text-honey-dark">$</span>
           <code
             aria-label={step.command}
             className="block max-w-full overflow-hidden whitespace-pre-wrap break-words"
@@ -29,7 +25,7 @@ function TerminalFrame({ step }: { step: ShowcaseStep }) {
           </code>
         </div>
 
-        <div className="mt-6 space-y-1 text-white/55">
+        <div className="mt-6 space-y-1 text-ink/60">
           {step.output.map((line) => (
             <p key={line} data-terminal-output>
               {line}
@@ -40,9 +36,9 @@ function TerminalFrame({ step }: { step: ShowcaseStep }) {
         {step.mel ? (
           <p
             data-terminal-mel
-            className="mt-7 max-w-xl border-l-2 border-honey pl-4 text-white/80"
+            className="mt-7 max-w-xl border-l-2 border-honey-dark pl-4 text-ink/70"
           >
-            <span className="text-white">🐝 Mel:</span> {step.mel}
+            <span className="font-medium text-ink">🐝 Mel:</span> {step.mel}
           </p>
         ) : null}
       </div>
@@ -94,9 +90,22 @@ export function ProductShowcase() {
 
         if (!scrubbed) timelines.forEach((timeline) => timeline.progress(1));
 
+        let activeIndex = 0;
         const activate = (index: number) => {
-          gsap.set([...panels, ...labels], { autoAlpha: 0 });
-          gsap.set([panels[index], labels[index]], { autoAlpha: 1 });
+          if (index === activeIndex) return;
+
+          const active = [panels[index], labels[index]];
+          const inactive = [...panels, ...labels].filter((element) => !active.includes(element));
+
+          if (!scrubbed) {
+            gsap.set(inactive, { autoAlpha: 0 });
+            gsap.set(active, { autoAlpha: 1 });
+          } else {
+            gsap.to(inactive, { autoAlpha: 0, duration: 0.14, overwrite: "auto" });
+            gsap.to(active, { autoAlpha: 1, duration: 0.18, overwrite: "auto" });
+          }
+
+          activeIndex = index;
         };
 
         ScrollTrigger.create({
@@ -111,14 +120,13 @@ export function ProductShowcase() {
           ScrollTrigger.create({
             trigger,
             start: "top 72%",
-            end: "bottom 72%",
+            end: "top 22%",
             animation: scrubbed ? timelines[index] : undefined,
             scrub: scrubbed,
             onEnter: () => activate(index),
             onEnterBack: () => activate(index),
             onUpdate: (self) => {
               if (!self.isActive) return;
-              activate(index);
               const stepProgress = scrubbed ? self.progress : 1;
               const pageProgress = ((index + stepProgress) / showcaseSteps.length) * 100;
               if (progressBar) gsap.set(progressBar, { width: `${pageProgress}%` });
@@ -129,6 +137,7 @@ export function ProductShowcase() {
               }
             },
             onLeaveBack: () => {
+              activate(Math.max(0, index - 1));
               if (index === 0 && progressBar) gsap.set(progressBar, { width: "0%" });
             },
           });
@@ -175,7 +184,7 @@ export function ProductShowcase() {
 
   return (
     <div ref={root}>
-      <div ref={desktopFlow} data-desktop-flow className="relative hidden min-h-[330vh] lg:block">
+      <div ref={desktopFlow} data-desktop-flow className="relative hidden min-h-[480vh] lg:block">
         <div ref={terminal} className="mx-auto w-full max-w-5xl" aria-live="polite">
           <div className="mb-5 flex items-end justify-between gap-6">
             <div className="grid">
@@ -213,7 +222,7 @@ export function ProductShowcase() {
 
         <div className="absolute inset-0 -z-10" aria-hidden="true">
           {showcaseSteps.map((step) => (
-            <div key={step.id} data-desktop-step className="h-[55vh]" />
+            <div key={step.id} data-desktop-step data-step-dwell className="h-[80vh]" />
           ))}
         </div>
       </div>

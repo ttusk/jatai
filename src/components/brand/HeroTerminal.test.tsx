@@ -8,6 +8,9 @@ describe("HeroTerminal", () => {
 
     expect(screen.getByLabelText("Prévia do SDK Jataí")).toBeInTheDocument();
     expect(container.querySelector("[data-hero-terminal]")).not.toBeNull();
+    expect(container.querySelectorAll("[data-terminal-execution]")).toHaveLength(1);
+    expect(screen.queryByText("quickstart.ts")).not.toBeInTheDocument();
+    expect(screen.queryByText("simulado")).not.toBeInTheDocument();
     expect(container.querySelectorAll("[data-terminal-char]").length).toBeGreaterThan(40);
     expect(container.querySelectorAll("[data-terminal-output]")).toHaveLength(2);
     expect(container.querySelectorAll("[data-terminal-mel]")).toHaveLength(1);

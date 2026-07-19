@@ -11,8 +11,12 @@ describe("ProductShowcase", () => {
     expect(screen.getAllByLabelText("npm install @jatai/sdk")).toHaveLength(2);
     expect(screen.getAllByText(/paymentId: 'pix_demo'/).length).toBeGreaterThan(0);
     expect(container.querySelectorAll("[data-desktop-step]")).toHaveLength(6);
+    expect(container.querySelectorAll("[data-step-dwell]")).toHaveLength(6);
     expect(container.querySelectorAll("[data-mobile-step]")).toHaveLength(6);
     expect(container.querySelectorAll("[data-terminal-sequence]")).toHaveLength(12);
+    expect(container.querySelectorAll("[data-terminal-execution]")).toHaveLength(12);
+    expect(screen.queryByText("playground.ts")).not.toBeInTheDocument();
+    expect(screen.queryByText("simulado")).not.toBeInTheDocument();
     expect(container.querySelectorAll("[data-terminal-char]").length).toBeGreaterThan(
       "npm install @jatai/sdk".length,
     );
