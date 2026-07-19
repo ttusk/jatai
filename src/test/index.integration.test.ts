@@ -64,6 +64,23 @@ describe("Jataí landing page", () => {
     expect(page.querySelector('footer a[href$="privacidade/"]')).not.toBeNull();
     expect(page.querySelector('footer a[href$="termos/"]')).not.toBeNull();
     expect(page.querySelector("footer")?.className).toContain("py-10");
+
+    const openFinanceLogo = page.querySelector('img[alt="Open Finance Brasil"]');
+    const academicDisclosure = openFinanceLogo?.nextElementSibling;
+    expect(openFinanceLogo?.className).toContain("h-7");
+    expect(academicDisclosure?.className).toContain("sm:whitespace-nowrap");
+  });
+
+  it("keeps the hero copy on one line when the layout has room", async () => {
+    const page = await getBuiltPage();
+    const hero = page.querySelector("#inicio");
+    const heading = hero?.querySelector("h2");
+    const supportingCopy = Array.from(hero?.querySelectorAll("p") ?? []).find((paragraph) =>
+      paragraph.textContent?.includes("SDK educacional"),
+    );
+
+    expect(heading?.className).toContain("sm:whitespace-nowrap");
+    expect(supportingCopy?.className).toContain("sm:whitespace-nowrap");
   });
 
   it("publishes honest privacy and terms pages for the fictional project", async () => {
