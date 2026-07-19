@@ -3,17 +3,20 @@ import { describe, expect, it } from "vitest";
 import { HeroTerminal } from "./HeroTerminal";
 
 describe("HeroTerminal", () => {
-  it("marks command, output, and Mel content for one scroll-scrubbed timeline", () => {
+  it("renders the complete execution without scroll-animation hooks", () => {
     const { container } = render(<HeroTerminal />);
 
     expect(screen.getByLabelText("Prévia do SDK Jataí")).toBeInTheDocument();
     expect(container.querySelector("[data-hero-terminal]")).not.toBeNull();
     expect(container.querySelectorAll("[data-terminal-execution]")).toHaveLength(1);
+    expect(container.querySelector("[data-terminal-sequence]")).toBeNull();
+    expect(container.querySelector("[data-terminal-char]")).toBeNull();
+    expect(container.querySelector("[data-terminal-output]")).toBeNull();
+    expect(container.querySelector("[data-terminal-mel]")).toBeNull();
     expect(screen.queryByText("quickstart.ts")).not.toBeInTheDocument();
     expect(screen.queryByText("simulado")).not.toBeInTheDocument();
-    expect(container.querySelectorAll("[data-terminal-char]").length).toBeGreaterThan(40);
-    expect(container.querySelectorAll("[data-terminal-output]")).toHaveLength(2);
-    expect(container.querySelectorAll("[data-terminal-mel]")).toHaveLength(1);
+    expect(screen.getByLabelText("import { jatai } from '@jatai/sdk'")).toBeInTheDocument();
+    expect(screen.getByText("consent.status → 'AUTHORIZED'")).toBeInTheDocument();
     expect(screen.getByText(/^🐝 Mel:/)).toBeInTheDocument();
   });
 });
