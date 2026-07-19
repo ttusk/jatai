@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { createTerminalTimeline } from "@/lib/terminalTimeline";
 import type { ShowcaseStep } from "./scenario";
 import { showcaseSteps } from "./scenario";
 
-function TerminalFrame({ step, animated = false }: { step: ShowcaseStep; animated?: boolean }) {
+function TerminalFrame({ step }: { step: ShowcaseStep }) {
   return (
     <div className="overflow-hidden rounded-2xl bg-ink text-white">
       <div className="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-xs text-white/55 sm:px-6">
@@ -11,33 +11,35 @@ function TerminalFrame({ step, animated = false }: { step: ShowcaseStep; animate
         <span className="text-honey">simulado</span>
       </div>
 
-      <div className="min-h-72 px-5 py-7 font-mono text-[0.78rem] leading-7 sm:min-h-80 sm:px-8 sm:py-9 sm:text-sm">
+      <div
+        data-terminal-sequence
+        className="min-h-72 px-5 py-7 font-mono text-[0.78rem] leading-7 sm:min-h-80 sm:px-8 sm:py-9 sm:text-sm"
+      >
         <div className="flex gap-3 text-white/90">
           <span className="select-none text-honey">$</span>
           <code
-            data-command={animated ? "" : undefined}
-            aria-label={animated ? step.command : undefined}
+            aria-label={step.command}
             className="block max-w-full overflow-hidden whitespace-pre-wrap break-words"
           >
-            {animated
-              ? Array.from(step.command).map((character, index) => (
-                  <span key={`${character}-${index}`} data-command-char aria-hidden="true">
-                    {character}
-                  </span>
-                ))
-              : step.command}
+            {Array.from(step.command).map((character, index) => (
+              <span key={`${character}-${index}`} data-terminal-char aria-hidden="true">
+                {character}
+              </span>
+            ))}
           </code>
         </div>
 
-        <div data-output={animated ? "" : undefined} className="mt-6 space-y-1 text-white/55">
+        <div className="mt-6 space-y-1 text-white/55">
           {step.output.map((line) => (
-            <p key={line}>{line}</p>
+            <p key={line} data-terminal-output>
+              {line}
+            </p>
           ))}
         </div>
 
         {step.mel ? (
           <p
-            data-mel={animated ? "" : undefined}
+            data-terminal-mel
             className="mt-7 max-w-xl border-l-2 border-honey pl-4 text-white/80"
           >
             <span className="text-white">🐝 Mel:</span> {step.mel}
@@ -52,7 +54,6 @@ export function ProductShowcase() {
   const root = useRef<HTMLDivElement>(null);
   const desktopFlow = useRef<HTMLDivElement>(null);
   const terminal = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const container = root.current;
@@ -75,26 +76,88 @@ export function ProductShowcase() {
       gsap.registerPlugin(ScrollTrigger);
       const media = gsap.matchMedia();
 
-      media.add(
-        "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
-        () => {
-          const triggers = Array.from(flow.querySelectorAll<HTMLElement>("[data-desktop-step]"));
+      function setupDesktop(scrubbed: boolean) {
+        const triggers = Array.from(flow.querySelectorAll<HTMLElement>("[data-desktop-step]"));
+        const panels = Array.from(
+          terminalElement.querySelectorAll<HTMLElement>("[data-desktop-terminal-step]"),
+        );
+        const labels = Array.from(
+          terminalElement.querySelectorAll<HTMLElement>("[data-desktop-label]"),
+        );
+        const progressBar = terminalElement.querySelector<HTMLElement>("[data-progress-bar]");
+        const timelines = panels.map((panel) =>
+          createTerminalTimeline(gsap, panel.querySelector("[data-terminal-sequence]") ?? panel),
+        );
 
+        gsap.set([...panels, ...labels], { autoAlpha: 0 });
+        gsap.set([panels[0], labels[0]], { autoAlpha: 1 });
+
+        if (!scrubbed) timelines.forEach((timeline) => timeline.progress(1));
+
+        const activate = (index: number) => {
+          gsap.set([...panels, ...labels], { autoAlpha: 0 });
+          gsap.set([panels[index], labels[index]], { autoAlpha: 1 });
+        };
+
+        ScrollTrigger.create({
+          trigger: flow,
+          start: "top 112px",
+          end: "bottom bottom",
+          pin: terminalElement,
+          pinSpacing: false,
+        });
+
+        triggers.forEach((trigger, index) => {
           ScrollTrigger.create({
-            trigger: flow,
-            start: "top 112px",
-            end: "bottom bottom",
-            pin: terminalElement,
-            pinSpacing: false,
+            trigger,
+            start: "top 72%",
+            end: "bottom 72%",
+            animation: scrubbed ? timelines[index] : undefined,
+            scrub: scrubbed,
+            onEnter: () => activate(index),
+            onEnterBack: () => activate(index),
+            onUpdate: (self) => {
+              if (!self.isActive) return;
+              activate(index);
+              const stepProgress = scrubbed ? self.progress : 1;
+              const pageProgress = ((index + stepProgress) / showcaseSteps.length) * 100;
+              if (progressBar) gsap.set(progressBar, { width: `${pageProgress}%` });
+            },
+            onLeave: () => {
+              if (index === showcaseSteps.length - 1 && progressBar) {
+                gsap.set(progressBar, { width: "100%" });
+              }
+            },
+            onLeaveBack: () => {
+              if (index === 0 && progressBar) gsap.set(progressBar, { width: "0%" });
+            },
           });
+        });
+      }
 
-          triggers.forEach((trigger, index) => {
+      media.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () =>
+        setupDesktop(true),
+      );
+      media.add("(min-width: 1024px) and (prefers-reduced-motion: reduce)", () =>
+        setupDesktop(false),
+      );
+      media.add(
+        "(max-width: 1023px) and (prefers-reduced-motion: no-preference)",
+        () => {
+          const articles = Array.from(
+            container.querySelectorAll<HTMLElement>("[data-mobile-step]"),
+          );
+
+          articles.forEach((article) => {
+            const sequence = article.querySelector("[data-terminal-sequence]");
+            if (!sequence) return;
+
             ScrollTrigger.create({
-              trigger,
-              start: "top center",
-              end: "bottom center",
-              onEnter: () => setActiveIndex(index),
-              onEnterBack: () => setActiveIndex(index),
+              trigger: article,
+              start: "top 82%",
+              end: "bottom 38%",
+              animation: createTerminalTimeline(gsap, sequence),
+              scrub: true,
             });
           });
         },
@@ -110,105 +173,42 @@ export function ProductShowcase() {
     };
   }, []);
 
-  useEffect(() => {
-    const terminalElement = terminal.current;
-    if (
-      !terminalElement ||
-      typeof window.matchMedia !== "function" ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) return;
-
-    let cancelled = false;
-    let revert = () => undefined;
-
-    async function animateTerminal() {
-      const { default: gsap } = await import("gsap");
-      if (cancelled || !terminalElement) return;
-
-      const context = gsap.context(() => {
-        const commandCharacters = terminalElement.querySelectorAll("[data-command-char]");
-        const output = terminalElement.querySelectorAll("[data-output] > *");
-        const mel = terminalElement.querySelector("[data-mel]");
-        const timeline = gsap.timeline();
-
-        if (commandCharacters.length > 0) {
-          timeline.fromTo(
-            commandCharacters,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.01, stagger: 0.014, ease: "none" },
-          );
-        }
-
-        timeline.fromTo(
-          output,
-          { opacity: 0, y: 8 },
-          { opacity: 1, y: 0, duration: 0.24, stagger: 0.08, ease: "power2.out" },
-          ">-0.05",
-        );
-
-        if (mel) {
-          timeline.fromTo(
-            mel,
-            { opacity: 0, y: 8 },
-            { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" },
-            ">-0.05",
-          );
-        }
-      }, terminalElement);
-
-      revert = () => context.revert();
-    }
-
-    void animateTerminal();
-    return () => {
-      cancelled = true;
-      revert();
-    };
-  }, [activeIndex]);
-
-  const activeStep = showcaseSteps[activeIndex];
-  const progress = ((activeIndex + 1) / showcaseSteps.length) * 100;
-
   return (
     <div ref={root}>
-      <div ref={desktopFlow} className="relative hidden min-h-[330vh] lg:block">
+      <div ref={desktopFlow} data-desktop-flow className="relative hidden min-h-[330vh] lg:block">
         <div ref={terminal} className="mx-auto w-full max-w-5xl" aria-live="polite">
           <div className="mb-5 flex items-end justify-between gap-6">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeStep.id}
-                initial={{ opacity: 0, y: 5 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.18 }}
-              >
-                <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink/45">
-                  Etapa {activeIndex + 1} de {showcaseSteps.length}
-                </p>
-                <p className="mt-1 text-sm font-medium text-ink">{activeStep.label}</p>
-              </motion.div>
-            </AnimatePresence>
+            <div className="grid">
+              {showcaseSteps.map((step, index) => (
+                <div
+                  key={step.id}
+                  data-desktop-label
+                  className={`col-start-1 row-start-1 ${index === 0 ? "visible" : "invisible"}`}
+                >
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-ink/45">
+                    Etapa {index + 1} de {showcaseSteps.length}
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-ink">{step.label}</p>
+                </div>
+              ))}
+            </div>
 
             <div className="h-px w-32 overflow-hidden bg-line" aria-hidden="true">
-              <motion.div
-                className="h-full origin-left bg-honey-dark"
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.2 }}
-              />
+              <div data-progress-bar className="h-full w-0 bg-honey-dark" />
             </div>
           </div>
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeStep.id}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.15 }}
-            >
-              <TerminalFrame step={activeStep} animated />
-            </motion.div>
-          </AnimatePresence>
+          <div className="grid">
+            {showcaseSteps.map((step, index) => (
+              <div
+                key={step.id}
+                data-desktop-terminal-step
+                className={`col-start-1 row-start-1 ${index === 0 ? "visible" : "invisible"}`}
+              >
+                <TerminalFrame step={step} />
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="absolute inset-0 -z-10" aria-hidden="true">
@@ -220,7 +220,7 @@ export function ProductShowcase() {
 
       <div className="space-y-16 lg:hidden">
         {showcaseSteps.map((step, index) => (
-          <article key={step.id} aria-labelledby={`showcase-${step.id}`}>
+          <article key={step.id} data-mobile-step aria-labelledby={`showcase-${step.id}`}>
             <div className="mb-4 flex items-center justify-between gap-4">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.14em] text-ink/45">

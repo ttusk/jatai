@@ -1,5 +1,6 @@
 ---
 import { AnimatedTitle } from "@/components/brand/AnimatedTitle";
+import { HeroTerminal } from "@/components/brand/HeroTerminal";
 ---
 
 <section
@@ -26,19 +27,5 @@ import { AnimatedTitle } from "@/components/brand/AnimatedTitle";
     </a>
   </div>
 
-  <div class="overflow-hidden rounded-2xl bg-ink text-white" aria-label="Prévia do SDK Jataí">
-    <div class="flex items-center justify-between border-b border-white/10 px-5 py-4 font-mono text-xs text-white/50 sm:px-6">
-      <span>quickstart.ts</span>
-      <span class="text-honey">simulado</span>
-    </div>
-    <pre class="overflow-x-auto px-5 py-8 font-mono text-[0.76rem] leading-7 sm:px-8 sm:py-10 sm:text-sm"><code><span class="text-white/45">import</span> {`{ jatai }`} <span class="text-white/45">from</span> <span class="text-honey">'@jatai/sdk'</span>
-
-<span class="text-white/45">const</span> consent = <span class="text-white/45">await</span> jatai.auth
-  .createConsent({`{ scopes: ['ACCOUNTS', 'PIX'] }`})
-
-<span class="text-white/45">const</span> accounts = <span class="text-white/45">await</span> jatai.accounts
-  .list({`{ consentId: consent.id }`})
-
-<span class="text-white/55">🐝 Mel: use dados sintéticos enquanto aprende.</span></code></pre>
-  </div>
+  <HeroTerminal client:load />
 </section>
