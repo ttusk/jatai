@@ -220,16 +220,68 @@ A Jataí tem como objetivo democratizar o acesso ao estudo de APIs financeiras e
 
 % Escreva aqui a metodologia.
 
-A seção de metodologia será responsável por apresentar o caminho lógico que resultou na criação da Jataí. Serão apresentadas as etapas de pesquisa exploratória, que será utilizada para mapear o Open Finance, compreender os problemas enfrentados por estudantes e desenvolvedores iniciantes e orientar a formulação da Jataí; de pesquisa documental, responsável por fundamentar, por meio de documentos legais e técnicos, a constituição da empresa júnior; de levantamento de requisitos, que busca definir o que a empresa deve possuir para agregar valor diante do problema apresentado; de prototipagem, que apresenta um conjunto de protótipos desenvolvidos com base nos requisitos levantados; e de validação com os usuários, que busca verificar se a entrega de valor está de acordo com as expectativas do público-alvo.
+A seção de metodologia será responsável por apresentar o caminho lógico que resultou na criação da Jataí. Serão apresentadas as etapas de pesquisa exploratória, que será utilizada para mapear o Open Finance, compreender os problemas enfrentados por estudantes e desenvolvedores iniciantes e orientar a formulação da Jataí; de pesquisa documental, responsável por fundamentar, por meio de documentos legais e técnicos, a constituição da empresa júnior; de levantamento de requisitos, que busca definir o que a empresa deve possuir para agregar valor diante do problema apresentado; de prototipagem, que apresenta um conjunto de protótipos desenvolvidos com base nos requisitos levantados; e de plano de validação com os usuários, que busca traçar uma estratégia para como devemos verificar se a entrega de valor está de acordo com as expectativas do público-alvo.
 
 % pesquisa exploratoria
 
 A pesquisa exploratória parte do reconhecimento de que o Open Finance constitui um sistema de integração financeira complexo, voltado à padronização do compartilhamento de dados e serviços no âmbito do \sfn{} brasileiro. Embora existam materiais oficiais disponibilizados publicamente, esses documentos apresentam caráter predominantemente técnico e normativo, sendo direcionados principalmente a instituições participantes e desenvolvedores envolvidos na implementação de soluções financeiras. Nesse contexto, identifica-se uma lacuna educacional para estudantes e desenvolvedores iniciantes, que necessitam não apenas compreender os fundamentos teóricos do ecossistema, mas também praticar sua aplicação em ambientes simulados, acessíveis e pedagogicamente orientados. É a partir dessa lacuna que se fundamenta a proposta da Jataí.
 
 % pesquisa documental
+
+A pesquisa documental busca organizar a base jurídica, regulatória e técnica que fundamenta a Jataí como empresa júnior voltada à educação em tecnologias de integração financeira. Essa etapa considera documentos legais relacionados à constituição de empresas juniores, materiais oficiais do Banco Central do Brasil e referências técnicas do Open Finance Brasil, a fim de delimitar a atuação da empresa como iniciativa educacional, sem operação financeira real, sem tratamento de dados bancários reais e sem integração com ambientes de produção.
+
+No aspecto jurídico, a pesquisa documental se apoia na Lei nº 13.267/2016, que disciplina a criação e a organização das empresas juniores, estabelecendo sua natureza educacional, sua vinculação a instituições de ensino superior e a vedação de distribuição de resultados financeiros entre seus integrantes. Também são considerados dispositivos gerais do Código Civil relativos às associações civis, uma vez que a empresa júnior assume essa forma jurídica.
+
+No aspecto regulatório, a análise considera documentos do Banco Central do Brasil relacionados ao Open Finance e ao Sistema Financeiro Aberto, com o objetivo de compreender os limites da atuação da Jataí. Como a proposta se restringe à simulação, ao uso de dados sintéticos, à documentação técnica e à prototipagem educacional, a empresa não se caracteriza como instituição financeira, instituição de pagamento ou participante regulado do Open Finance.
+
+No aspecto técnico, a pesquisa documental contempla materiais da Área do Desenvolvedor do Open Finance Brasil, que reúnem especificações de APIs, requisitos não funcionais, limites de tráfego, padrões de implementação e orientações voltadas às instituições participantes. Esses documentos servem como referência para a definição dos conteúdos e funcionalidades simuladas pela Jataí, sem que isso implique integração com sistemas reais de produção.
+
 % levantamento de requisitos
+
+No levantamento de requisitos, busca-se delimitar o escopo da Jataí, através de requisitos funcionais e não funcionais, definindo os elementos essenciais que seus produtos devem apresentar para responder à dor do cliente. Essa etapa permite estabelecer quais funcionalidades, conteúdos e critérios mínimos são necessários para que as soluções propostas agreguem valor ao público-alvo.
+
+Dentro disso, podemos definir alguns requisitos funcionais:
+
+\begin{itemize}
+  \item Permitir que o usuário consuma uma API bancária simulada para consulta de dados financeiros fictícios.
+
+  \item Disponibilizar um ambiente de \textit{sandbox} para testes de integração com APIs financeiras.
+
+  \item Simular fluxos de autenticação e autorização utilizados em integrações financeiras.
+
+  \item Gerar dados financeiros sintéticos para uso em testes, protótipos e atividades educacionais.
+
+  \item Disponibilizar documentação técnica e exemplos práticos para apoiar o aprendizado dos usuários.
+
+  \item Registrar informações básicas sobre requisições, respostas e erros para fins de estudo, depuração e telemetria.
+\end{itemize}
+
+Também são definidos requisitos não funcionais, responsáveis por estabelecer critérios de qualidade, restrições e condições de funcionamento da plataforma:
+
+\begin{itemize}
+  \item Utilizar apenas dados sintéticos, sem tratamento de dados bancários reais.
+
+  \item Apresentar documentação clara, progressiva e acessível para estudantes e desenvolvedores iniciantes.
+
+  \item Manter limites de uso compatíveis com a infraestrutura disponível.
+
+  \item Garantir segurança básica nas comunicações e nos fluxos simulados de autenticação.
+
+  \item Preservar estabilidade suficiente para uso em oficinas, aulas, hackathons e testes acadêmicos.
+
+  \item Permitir evolução modular dos produtos conforme novas necessidades educacionais e técnicas forem identificadas.
+\end{itemize}
+
 % prototipagem
-% validação com usuários
+
+
+
+% plano de validação
+
+Para validar se o que foi produzido realmente está alinhado com o que o público-alvo está buscando, a Jataí planeja apresentar seus protótipos em contextos educacionais e de inovação, combinando oficinas, demonstrações guiadas e coleta estruturada de feedback. Eventos como a Campus Party representam uma alternativa relevante para essa etapa, pois contam com programas voltados à exposição de projetos estudantis, troca de experiências, networking e validação de ideias, como o Campus Future \parencite{campuspartyCampusFuture}, além de iniciativas voltadas a startups, mentorias, conexão com mercado e possibilidades de parcerias estratégicas, como o Campus Startups \parencite{campuspartyCampusStartups}. Nesse sentido, a validação da Jataí poderá ocorrer em hackathons, comunidades online de desenvolvimento, semanas acadêmicas, laboratórios universitários e eventos de tecnologia.
+
+Além desses espaços, a Jataí poderá buscar parcerias com instituições financeiras, fintechs, cooperativas de crédito e empresas de tecnologia interessadas em apoiar a formação de novos talentos. Essas parcerias deverão ter caráter educacional, sem acesso a dados bancários reais e sem integração com ambientes de produção, podendo envolver mentorias técnicas, desafios práticos, avaliação dos protótipos, palestras, apoio a oficinas e validação de casos de uso simulados. Também poderão ser realizadas turmas piloto com estudantes da UnDF e de outras instituições de ensino, permitindo avaliar critérios como clareza da documentação, facilidade de consumo das APIs simuladas, compreensão dos fluxos de autenticação, estabilidade do \textit{sandbox} e percepção de valor pelos usuários.
+
 \chapter{Identificação da Empresa}
 
 \section{Caracterização}
