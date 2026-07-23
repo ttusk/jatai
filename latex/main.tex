@@ -293,7 +293,7 @@ Além desses espaços, a Jataí poderá buscar parcerias com instituições fina
 
   \item[Natureza jurídica:] Associação civil sem fins lucrativos, estruturada como empresa júnior nos termos da Lei nº 13.267/2016. A Jataí possui finalidade educacional e será vinculada ao ambiente universitário, sendo vedada a distribuição de excedentes financeiros entre seus integrantes. Toda eventual receita obtida será reinvestida na manutenção da plataforma, na infraestrutura tecnológica, na capacitação dos membros e no desenvolvimento das atividades-fim da empresa.
 
-  \item[Descrição:] A Jataí é uma empresa júnior voltada à democratização do acesso a ambientes de teste e aprendizagem em APIs financeiras. Sua proposta consiste em oferecer soluções tecnológicas acessíveis para estudantes, desenvolvedores iniciantes, desenvolvedores autônomos e pequenas startups que desejam compreender, prototipar e validar integrações inspiradas no Open Finance sem depender de dados bancários reais ou de acesso a sistemas financeiros de produção. A Jataí busca aproximar o público universitário das práticas utilizadas no mercado financeiro digital.
+  \item[Descrição:] A Jataí é uma empresa júnior voltada à democratização do acesso a ambientes de teste e aprendizagem em APIs financeiras. Sua proposta consiste em oferecer soluções tecnológicas acessíveis para estudantes, desenvolvedores iniciantes, desenvolvedores autônomos e pequenas startups que desejam compreender, construir protótipos e validar integrações inspiradas no Open Finance sem depender de dados bancários reais ou de acesso a sistemas financeiros de produção. A Jataí busca aproximar o público universitário das práticas utilizadas no mercado financeiro digital.
 \end{description}
 
 \section{Missão, visão e valores}
@@ -385,7 +385,7 @@ Além desses espaços, a Jataí poderá buscar parcerias com instituições fina
 \chapter{Análise de Mercado}
 \section{Público-alvo}
 % Escreva aqui o público-alvo.
-Nosso público-alvo principal são estudantes de tecnologia que buscam alternativas para iniciar o desenvolvimento de integrações com o sistemas bancários ou que buscam otimizar suas aplicações. Cada um dos 5 produtos que propomos possui públicos mais específicos, tendo em comum a ideia de fornecer recursos de apoio para a construção de aplicações para estudo individual.
+Nosso público-alvo principal são estudantes de tecnologia que buscam alternativas para iniciar o desenvolvimento de integrações com o sistemas bancários ou que buscam otimizar suas aplicações. A utilização simultânea dos 5 produtos que disponibilizamos tem como objetivo atrair um pública que precisa de um ambiente sandbox para simular transações bancárias.
 
 \section{Concorrentes}
 Os principais concorrentes relacionados a nossa proposta são Sandboxes de bancos e fintechs, Ferramentas genéricas de mock de APIs e Projetos open source de Open Banking. Cada uma dessas soluções possui suas vantagens de desvantagens, porém nenhuma delas possui como foco principal fornecer um ecossistema financeiro simulado, integrado e de fácil instalação voltado para aprendizado e prototipação.
@@ -406,36 +406,71 @@ Entretanto, o projeto possui como principal objetivo atender instituições e or
 A solução proposta busca atender uma necessidade diferente, oferecendo um ambiente simplificado, com instalação facilitada e foco educacional, permitindo que estudantes e desenvolvedores possam experimentar conceitos financeiros por meio de uma infraestrutura local e integrada.
 
 \section{Parceiros e fornecedores}
-Nossa solução depende de fornecedores de infraestrutura de nuvem. Para manter a proposta de fornecer um ambiente pronto para quem não quer utilizar o serviço com self-hosting, o Jataí se propõe a utilizar serviços em nuvem nas versões pagas de cada serviço, onde a arrecadação do serviço será utilizada apenas para manter a infraestrutura e não para gerar lucro.
+Nossa solução depende de uma rede de parceiros estratégicos e fornecedores de infraestrutura de nuvem para garantir seu desenvolvimento, adoção e manutenção. Para manter a proposta de fornecer um ambiente pronto para quem não quer utilizar o serviço com self-hosting, o Jataí se propõe a utilizar serviços em nuvem nas versões pagas de cada serviço, onde a arrecadação do serviço tem como finalidade apenas custear a infraestrutura necessária para manutenção da plataforma, em conformidade com o caráter sem fins lucrativos das empresas juniores.
 
 \subsection{Parceiros}
+A natureza open source do projeto permite que a comunidade contribua com ideias, melhorias e novas funcionalidades. Os principais parceiros da Jataí são:
+
+\begin{itemize}
+    \item \textbf{Instituições de ensino e professores orientadores}: utilização da plataforma em disciplinas, projetos de pesquisa, extensão e empresas juniores, contribuindo para a formação prática de estudantes.
+    
+    \item \textbf{Comunidades de tecnologia}: grupos de usuários, comunidades open source, hackathons e eventos técnicos podem contribuir para divulgação da plataforma, recebimento de feedback e evolução dos produtos.
+    
+    \item \textbf{Bancos, fintechs e cooperativas de crédito}: parcerias voltadas à validação dos fluxos simulados, identificação de boas práticas e aproximação entre o ambiente acadêmico e o mercado financeiro.
+    
+    \item \textbf{Empresas de infraestrutura em nuvem}: provedores como AWS, Google Cloud Platform e Microsoft Azure podem fornecer infraestrutura para a versão hospedada da plataforma, além de programas de créditos para startups e projetos educacionais.
+\end{itemize}
 
 \subsection{Fornecedores}
+Para disponibilizar a solução em nuvem, o Jataí utilizará serviços de provedores como AWS e Google Cloud, que oferecem serviços de hospedagem, banco de dados e gerenciamento de contêineres. A escolha desses fornecedores se baseia na confiabilidade, escalabilidade e suporte técnico oferecidos por essas plataformas, garantindo que os usuários tenham acesso a um ambiente estável e seguro para suas atividades de aprendizado e prototipagem.
+Como nossa solução foi pensada como algo portátil e flexível, a escolha de provedores de nuvem não é restritiva, podendo ser alterada conforme a necessidade, desde que os requisitos técnicos sejam atendidos. Apesar disso, demonstramos preferência pela AWS por ser uma das principais fornecedoras de infraestrutura em nuvem devido à ampla oferta de serviços em nuvem, alta disponibilidade, escalabilidade e grande quantidade de documentação técnica disponível \parencite{awsDoc}.
 
 \section{Oportunidades e ameaças}
-% Escreva aqui as oportunidades e ameaças.
+Como oportunidades temos a demanda por profissionais capacitados em integração de sistemas financeiros, a crescente adoção do Open Finance no Brasil, a possibilidade de parcerias estratégicas com instituições de ensino e empresas do setor financeiro, além da expansão do mercado de tecnologia e inovação. Essas oportunidades podem impulsionar o crescimento da Jataí, permitindo que ela se torne uma referência na formação técnica voltada ao desenvolvimento de soluções para o ecossistema financeiro.
+Como ameaças, podemos citar a concorrência de sandboxes de bancos e fintechs, a complexidade regulatória do setor financeiro, a rápida evolução das tecnologias e especificações do ecossistema financeiro e a necessidade de atualização constante dos conteúdos e ferramentas oferecidas pela Jataí. Além disso, a dependência de provedores de infraestrutura em nuvem podem revelar um desafio para manutenção da disponibilidade da aplicação por meio de alterações nos custos operacionais ou baixa adesão dos planos pagos.
 
 \section{Parcerias estratégicas}
-% Escreva aqui as parcerias estratégicas.
+A parceria com instituições de ensino e professores orientadores pode ser uma oportunidade estratégica de divulgação da solução, permitindo que a plataforma seja incorporada em disciplinas, projetos de pesquisa e extensão, além de empresas juniores. Essa colaboração pode gerar feedback valioso para aprimorar os produtos e adaptar a plataforma às necessidades educacionais.
+Outra parceria estratégica envolve a colaboração com comunidades de tecnologia de forma geral. Essa colaboração pode gerar, além da divulgação da plataforma, a possibilidade de receber feedbacks e melhorias da comunidade através de \textit{forks} e \textit{pull requests}. Além disso, pode possibilitar a realização de hackathons e eventos técnicos que promovam o uso da plataforma e incentivem a inovação.
+Por fim, parcerias com bancos, fintechs e cooperativas de crédito podem contribuir para a validação dos fluxos financeiros simulados e para a aproximação da plataforma com práticas adotadas pelo mercado. Essa colaboração possibilita que as simulações permaneçam alinhadas às tecnologias e aos padrões utilizados em ambientes reais, aumentando a relevância da solução para estudantes e desenvolvedores.
 
 \chapter{Portfólio de Produtos e Serviços}
 \section{Jataí \textit{Core API}}
-% Escreva aqui sobre o produto ou serviço.
+Simula integralmente o comportamento de endpoints bancários padronizados para consulta de saldo, extrato e histórico de transações, criação e consulta de cobranças, como boletos bancários simulados em contas de teste. Resolve a carência de dados estruturados para validações sintáticas e de interface. Pode ser utilizado em conjunto com o Jataí \textit{Pay Sandbox} para simular fluxos de pagamento e transferência de fundos. Seu intuito é fornecer recursos para o desenvolvimento de interfaces de usuário, testes de integração e prototipagem de aplicações financeiras.
 
 \section{Jataí \textit{Pay Sandbox}}
-% Escreva aqui sobre o produto ou serviço.
+Ambiente de testes isolado projetado para processar requisições complexas de iniciação de pagamentos instantâneos (Pix). Permite ao programador validar fluxos assíncronos e callbacks sem riscos financeiros reais.
 
 \section{Jataí \textit{Auth}}
-% Escreva aqui sobre o produto ou serviço.
+Baseado nos protocolos OAuth2 e OpenID Connect, estritamente aderente aos padrões de segurança do Open Finance. Resolve a alta complexidade de configuração inicial de camadas de autenticação segura em protótipos de software.
 
 \section{Jataí \textit{Chaos \& Telemetry}}
-% Escreva aqui sobre o produto ou serviço.
+Analisa tempo de resposta, latência e taxa de erro das requisições enviadas pelos sistemas dos clientes. Aponta gargalos no desempenho do código e auxilia na otimização de consultas. Podendo ser utilizado para testes de carga e simulação de instabilidades.
 
 \section{Jataí \textit{DataGen}}
-% Escreva aqui sobre o produto ou serviço.
+Mecanismo algorítmico gerador de dados financeiros sintéticos e relacionais em larga escala para testes de carga e alimentação de modelos de inteligência artificial. Resolve o problema da escassez de bases de dados realistas que cumpram as restrições da LGPD.
+
 
 \section{Níveis de acesso e precificação}
-% Escreva aqui os níveis de acesso e precificação.
+A Jataí disponibilizará 3 níveis de acesso aos seus produtos. A precificação é baseada em uma estimativa de custos de infraestrutura em nuvem feita usando a calculadora de preços da AWS \parencite{awsPricingCalculator}, considerando o uso de serviços como Amazon EC2 e Amazon RDS. A estimativa leva em conta o tempo de disponibilidade e o armazenamento necessário.
+\begin{table}[h]
+\centering
+  \begin{tabular}{|c|p{6cm}|c|p{4cm}|}
+  \hline
+  \textbf{Nível} & \textbf{Descrição} & \textbf{Preço estimado} & \textbf{Público-alvo} \\ \hline
+
+  Gratuito &
+  Acesso ao código fonte da aplicação para execução de todos os produtos Jataí localmente. &
+  R\$ 0,00 & 
+  Estudantes, pesquisadores e desenvolvedores iniciantes \\ \hline
+
+  Pro &
+  Ambiente compartilhado, disponibilidade em uma janela definida (8h/dia). Destinado a desenvolvedores independentes e projetos em fase de prototipação. &
+  R\$ 19,90/mês & 
+  Desenvolvedores autônomos, freelancers e pequenas equipes \\ \hline
+
+  \end{tabular}
+\end{table}
 
 \chapter{Plano de Marketing}
 \section{Posicionamento}
