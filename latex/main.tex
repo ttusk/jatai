@@ -385,12 +385,32 @@ Além desses espaços, a Jataí poderá buscar parcerias com instituições fina
 \chapter{Análise de Mercado}
 \section{Público-alvo}
 % Escreva aqui o público-alvo.
+Nosso público-alvo principal são estudantes de tecnologia que buscam alternativas para iniciar o desenvolvimento de integrações com o sistemas bancários ou que buscam otimizar suas aplicações. Cada um dos 5 produtos que propomos possui públicos mais específicos, tendo em comum a ideia de fornecer recursos de apoio para a construção de aplicações para estudo individual.
 
 \section{Concorrentes}
-% Escreva aqui os concorrentes.
+Os principais concorrentes relacionados a nossa proposta são Sandboxes de bancos e fintechs, Ferramentas genéricas de mock de APIs e Projetos open source de Open Banking. Cada uma dessas soluções possui suas vantagens de desvantagens, porém nenhuma delas possui como foco principal fornecer um ecossistema financeiro simulado, integrado e de fácil instalação voltado para aprendizado e prototipação.
+
+\subsection{Sandboxes de bancos e fintechs}
+Os sandboxes disponibilizados por bancos e fintechs possuem mecanismos robustos de segurança e documentação detalhada, a inscrição no Portal de Desenvolvedores do Banco do Brasil pode possibilitar a utilização de um fluxo para publicação de integrações testadas em homologação para produção caso os requisitos de uso da API em específico sejam atendidos \parencite{docBB}.
+
+Em geral, o objetivo desses ambientes é simular a integração com o provedor em específico, simulando inclusive a sua forma própria de segurança de APIs, além disso, não é permitida a execução de uma instância própria da API pelo usuário.
+
+\subsection{Ferramentas genéricas de mock de APIs}
+As ferramentas de mock de APIs como o Postman \parencite{postmanMockDoc} possibilitam o usuário gerar uma instância própria da API em sua máquina local, mas não simulam um banco. Seu intuito é a criação de APIs genéricas, isso significa que o usuário terá que manualmente, desenvolver o comportamento que ele espera daquela API simulada enquanto nossa solução segue uma filosofia de ``\textit{plug and play}'' onde, ao subir os produtos que disponibilizamos localmente, o usuário já consegue uma simulação de sistema bancário pronta.
+
+\subsection{Projetos open source de Open Banking}
+Projetos como o Open Bank Project \parencite{opbApi} possuem uma proposta próxima ao desenvolvimento de APIs bancárias abertas, disponibilizando uma plataforma open source para implementação de serviços financeiros.
+
+Entretanto, o projeto possui como principal objetivo atender instituições e organizações interessadas em construir ou experimentar soluções de Open Banking, possuindo uma complexidade de configuração e operação mais adequada para ambientes profissionais.
+
+A solução proposta busca atender uma necessidade diferente, oferecendo um ambiente simplificado, com instalação facilitada e foco educacional, permitindo que estudantes e desenvolvedores possam experimentar conceitos financeiros por meio de uma infraestrutura local e integrada.
 
 \section{Parceiros e fornecedores}
-% Escreva aqui os parceiros e fornecedores.
+Nossa solução depende de fornecedores de infraestrutura de nuvem. Para manter a proposta de fornecer um ambiente pronto para quem não quer utilizar o serviço com self-hosting, o Jataí se propõe a utilizar serviços em nuvem nas versões pagas de cada serviço, onde a arrecadação do serviço será utilizada apenas para manter a infraestrutura e não para gerar lucro.
+
+\subsection{Parceiros}
+
+\subsection{Fornecedores}
 
 \section{Oportunidades e ameaças}
 % Escreva aqui as oportunidades e ameaças.
