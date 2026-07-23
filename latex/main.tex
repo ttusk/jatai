@@ -385,7 +385,7 @@ Além desses espaços, a Jataí poderá buscar parcerias com instituições fina
 \chapter{Análise de Mercado}
 \section{Público-alvo}
 % Escreva aqui o público-alvo.
-Nosso público-alvo principal são estudantes de tecnologia que buscam alternativas para iniciar o desenvolvimento de integrações com o sistemas bancários ou que buscam otimizar suas aplicações. Cada um dos 5 produtos que propomos possui públicos mais específicos, tendo em comum a ideia de fornecer recursos de apoio para a construção de aplicações para estudo individual.
+Nosso público-alvo principal são estudantes de tecnologia que buscam alternativas para iniciar o desenvolvimento de integrações com o sistemas bancários ou que buscam otimizar suas aplicações. A utilização simultânea dos 5 produtos que disponibilizamos tem como objetivo atrair um pública que precisa de um ambiente sandbox para simular transações bancárias.
 
 \section{Concorrentes}
 Os principais concorrentes relacionados a nossa proposta são Sandboxes de bancos e fintechs, Ferramentas genéricas de mock de APIs e Projetos open source de Open Banking. Cada uma dessas soluções possui suas vantagens de desvantagens, porém nenhuma delas possui como foco principal fornecer um ecossistema financeiro simulado, integrado e de fácil instalação voltado para aprendizado e prototipação.
@@ -419,8 +419,6 @@ A natureza open source do projeto permite que a comunidade contribua com ideias,
     \item \textbf{Bancos, fintechs e cooperativas de crédito}: parcerias voltadas à validação dos fluxos simulados, identificação de boas práticas e aproximação entre o ambiente acadêmico e o mercado financeiro.
     
     \item \textbf{Empresas de infraestrutura em nuvem}: provedores como AWS, Google Cloud Platform e Microsoft Azure podem fornecer infraestrutura para a versão hospedada da plataforma, além de programas de créditos para startups e projetos educacionais.
-    
-    \item \textbf{Programas de fomento à inovação}: editais e programas de incentivo, como os promovidos pela FAPDF, Sebrae, FINEP e outras agências de fomento, podem apoiar financeiramente o desenvolvimento e expansão da plataforma.
 \end{itemize}
 
 \subsection{Fornecedores}
@@ -433,7 +431,7 @@ Como ameaças, podemos citar a concorrência de sandboxes de bancos e fintechs, 
 
 \section{Parcerias estratégicas}
 A parceria com instituições de ensino e professores orientadores pode ser uma oportunidade estratégica de divulgação da solução, permitindo que a plataforma seja incorporada em disciplinas, projetos de pesquisa e extensão, além de empresas juniores. Essa colaboração pode gerar feedback valioso para aprimorar os produtos e adaptar a plataforma às necessidades educacionais.
-Outra parceria estrátegica envolve a colaboração com comunidades de tecnologia de forma geral. Essa colaboração pode gerar, além da divulgação da plataforma, a possibilidade de receber feedbacks e melhorias da comunidade através de \textit{forks} e \textit{pull requests}. Além disso, pode possibilitar a realização de hackathons e eventos técnicos que promovam o uso da plataforma e incentivem a inovação.
+Outra parceria estratégica envolve a colaboração com comunidades de tecnologia de forma geral. Essa colaboração pode gerar, além da divulgação da plataforma, a possibilidade de receber feedbacks e melhorias da comunidade através de \textit{forks} e \textit{pull requests}. Além disso, pode possibilitar a realização de hackathons e eventos técnicos que promovam o uso da plataforma e incentivem a inovação.
 Por fim, parcerias com bancos, fintechs e cooperativas de crédito podem contribuir para a validação dos fluxos financeiros simulados e para a aproximação da plataforma com práticas adotadas pelo mercado. Essa colaboração possibilita que as simulações permaneçam alinhadas às tecnologias e aos padrões utilizados em ambientes reais, aumentando a relevância da solução para estudantes e desenvolvedores.
 
 \chapter{Portfólio de Produtos e Serviços}
@@ -447,14 +445,11 @@ Ambiente de testes isolado projetado para processar requisições complexas de i
 Baseado nos protocolos OAuth2 e OpenID Connect, estritamente aderente aos padrões de segurança do Open Finance. Resolve a alta complexidade de configuração inicial de camadas de autenticação segura em protótipos de software.
 
 \section{Jataí \textit{Chaos \& Telemetry}}
-Analisa tempo de resposta, latência e taxa de erro das requisições enviadas pelos sistemas dos clientes. Aponta gargalos no desempenho do código e auxilia na otimização de consultas.
+Analisa tempo de resposta, latência e taxa de erro das requisições enviadas pelos sistemas dos clientes. Aponta gargalos no desempenho do código e auxilia na otimização de consultas. Podendo ser utilizado para testes de carga e simulação de instabilidades.
 
 \section{Jataí \textit{DataGen}}
 Mecanismo algorítmico gerador de dados financeiros sintéticos e relacionais em larga escala para testes de carga e alimentação de modelos de inteligência artificial. Resolve o problema da escassez de bases de dados realistas que cumpram as restrições da LGPD.
 
-\section{Jataí \textit{Admin}}
-Interface administrativa para utilização em conjunto com os demais produtos. Com recursos diversos disponíveis ao utilizar a aplicação com self-hosting e recursos um pouco mais limitados ao usar a versão hospedada em nuvem, permitindo que o usuário configure limites de requisições, simule instabilidades para aferição de tratamento de erros, incluir latência artificial nas respostas e cadastre contas de teste.
-Com a possibilidade de criação de cenários predefinidos, por exemplo um cenário de teste de alta demanda de requisições, com aumento progressivo da latência e Rate Limit já configurados, ou um cenário de instabilidade, configurado para devolver HTTP 500 em 10% das requisições e para ter alta variação de latência.
 
 \section{Níveis de acesso e precificação}
 A Jataí disponibilizará 3 níveis de acesso aos seus produtos. A precificação é baseada em uma estimativa de custos de infraestrutura em nuvem feita usando a calculadora de preços da AWS \parencite{awsPricingCalculator}, considerando o uso de serviços como Amazon EC2 e Amazon RDS. A estimativa leva em conta o tempo de disponibilidade e o armazenamento necessário.

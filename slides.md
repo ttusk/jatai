@@ -56,19 +56,34 @@ Produtos
 ===
 
 - Jataí *Core API*
+  - Simulação bancária geral
 - Jataí *Pay Sandbox*
+  - Simulação de pagamentos instantâneos (Pix)
 - Jataí *Auth*
+  - Simulação de autenticação e autorização de usuários (baseado nos padrões estabelecidos pelo Open Finance)
 - Jataí *Chaos & Telemetry*
+  - Simulação de instabilidade e monitoramento de métricas de desempenho
 - Jataí *DataGen*
+  - Geração de dados sintéticos para testes e validação de aplicações
  
 <!-- end_slide -->
 
 Análise de mercado
 ===
 
-- As próprias instituições financeiras possuem ferramentas de *sandbox*
-- Também existem projetos open-source com foco em facilitar a integração ao Open Finance
-- Nenhuma se propõe a democratizar o ensino de integrações financeiras através de SDK's simulados
+## Público-alvo
+- Estudantes de tecnologia
+- Instituições de ensino
+- Desenvolvedores iniciantes
+## Concorrentes
+- Sandboxes de bancos e fintechs
+- Ferramentas genéricas de mock de APIs
+- Projetos open source de Open Banking
+## Parceiros
+- Instituições de ensino, comunidades de tecnologia, bancos e fintechs.
+
+## Fornecedores
+- AWS/Google Cloud, domínio, SSL e serviços de e-mail.
 
 <!-- end_slide -->
 
