@@ -293,7 +293,7 @@ Além desses espaços, a Jataí poderá buscar parcerias com instituições fina
 
   \item[Natureza jurídica:] Associação civil sem fins lucrativos, estruturada como empresa júnior nos termos da Lei nº 13.267/2016. A Jataí possui finalidade educacional e será vinculada ao ambiente universitário, sendo vedada a distribuição de excedentes financeiros entre seus integrantes. Toda eventual receita obtida será reinvestida na manutenção da plataforma, na infraestrutura tecnológica, na capacitação dos membros e no desenvolvimento das atividades-fim da empresa.
 
-  \item[Descrição:] A Jataí é uma empresa júnior voltada à democratização do acesso a ambientes de teste e aprendizagem em APIs financeiras. Sua proposta consiste em oferecer soluções tecnológicas acessíveis para estudantes, desenvolvedores iniciantes, desenvolvedores autônomos e pequenas startups que desejam compreender, prototipar e validar integrações inspiradas no Open Finance sem depender de dados bancários reais ou de acesso a sistemas financeiros de produção. A Jataí busca aproximar o público universitário das práticas utilizadas no mercado financeiro digital.
+  \item[Descrição:] A Jataí é uma empresa júnior voltada à democratização do acesso a ambientes de teste e aprendizagem em APIs financeiras. Sua proposta consiste em oferecer soluções tecnológicas acessíveis para estudantes, desenvolvedores iniciantes, desenvolvedores autônomos e pequenas startups que desejam compreender, construir protótipos e validar integrações inspiradas no Open Finance sem depender de dados bancários reais ou de acesso a sistemas financeiros de produção. A Jataí busca aproximar o público universitário das práticas utilizadas no mercado financeiro digital.
 \end{description}
 
 \section{Missão, visão e valores}
@@ -438,7 +438,7 @@ Por fim, parcerias com bancos, fintechs e cooperativas de crédito podem contrib
 
 \chapter{Portfólio de Produtos e Serviços}
 \section{Jataí \textit{Core API}}
-Simula integralmente o comportamento de endpoints bancários padronizados para consulta de saldo, extrato e histórico de transações, criação e consulta de cobranças, como boletos bancários simulados em contas de teste. Resolve a carência de dados estruturados para validações sintáticas e de interface. Pode ser utilizado em conjunto com o Jataí \textit{Pay Sandbox} para simular fluxos de pagamento e transferência de fundos. Seu intuito é fornecer recursos para o desenvovilmento de interfaces de usuário, testes de integração e prototipagem de aplicações financeiras.
+Simula integralmente o comportamento de endpoints bancários padronizados para consulta de saldo, extrato e histórico de transações, criação e consulta de cobranças, como boletos bancários simulados em contas de teste. Resolve a carência de dados estruturados para validações sintáticas e de interface. Pode ser utilizado em conjunto com o Jataí \textit{Pay Sandbox} para simular fluxos de pagamento e transferência de fundos. Seu intuito é fornecer recursos para o desenvolvimento de interfaces de usuário, testes de integração e prototipagem de aplicações financeiras.
 
 \section{Jataí \textit{Pay Sandbox}}
 Ambiente de testes isolado projetado para processar requisições complexas de iniciação de pagamentos instantâneos (Pix). Permite ao programador validar fluxos assíncronos e callbacks sem riscos financeiros reais.
@@ -460,17 +460,19 @@ Com a possibilidade de criação de cenários predefinidos, por exemplo um cená
 A Jataí disponibilizará 3 níveis de acesso aos seus produtos. A precificação é baseada em uma estimativa de custos de infraestrutura em nuvem feita usando a calculadora de preços da AWS \parencite{awsPricingCalculator}, considerando o uso de serviços como Amazon EC2 e Amazon RDS. A estimativa leva em conta o tempo de disponibilidade e o armazenamento necessário.
 \begin{table}[h]
 \centering
-  \begin{tabular}{|c|p{8cm}|c|}
+  \begin{tabular}{|c|p{6cm}|c|p{4cm}|}
   \hline
-  \textbf{Nível} & \textbf{Descrição} & \textbf{Preço estimado} \\ \hline
+  \textbf{Nível} & \textbf{Descrição} & \textbf{Preço estimado} & \textbf{Público-alvo} \\ \hline
 
   Gratuito &
-  Acesso ao código fonte da aplicação para execução de todos os pordutos Jataí localmente. &
-  R\$ 0,00 \\ \hline
+  Acesso ao código fonte da aplicação para execução de todos os produtos Jataí localmente. &
+  R\$ 0,00 & 
+  Estudantes, pesquisadores e desenvolvedores iniciantes \\ \hline
 
   Pro &
   Ambiente compartilhado, disponibilidade em uma janela definida (8h/dia). Destinado a desenvolvedores independentes e projetos em fase de prototipação. &
-  R\$ 19,90/mês \\ \hline
+  R\$ 19,90/mês & 
+  Desenvolvedores autônomos, freelancers e pequenas equipes \\ \hline
 
   \end{tabular}
 \end{table}
